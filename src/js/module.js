@@ -5,11 +5,15 @@ import React from  'react';
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Main from 'components/main';
+import Header from 'components/header';
 
 render((
-    <Router history={browserHistory}>
-        <Route path="/" component={Main}>
-            <Route path="*" component={Main}/>
-        </Route>
-    </Router>
+    <div>
+        <Header />
+        <Router history={browserHistory}>
+            <Route path="/" component={Main}>
+                <Route path="*" component={Main}/>
+            </Route>
+        </Router>
+    </div>
 ), document.getElementById('content'));
