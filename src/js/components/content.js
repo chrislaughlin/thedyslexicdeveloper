@@ -1,6 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 import PostSummary from 'components/postSummary';
+import rowWithCentreContent  from 'styles/rowWithCentreContent';
 
 class Content extends React.Component {
 
@@ -30,7 +31,7 @@ class Content extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='main-content'>
                 {this.renderPost()}
             </div>
         );

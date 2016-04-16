@@ -1,7 +1,7 @@
 /*eslint-disable */
 import React from  'react';
 /*eslint-enable */
-
+import '../scss/main.scss';
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Main from 'components/main';

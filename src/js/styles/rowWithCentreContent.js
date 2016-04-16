@@ -1,4 +1,4 @@
 module.exports = {
-    display: 'flex',
+    display: '-webkit-flex',
     justifyContent: 'center'
 };
