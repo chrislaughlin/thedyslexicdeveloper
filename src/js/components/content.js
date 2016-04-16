@@ -1,22 +1,37 @@
 import React from 'react';
 import request from 'superagent';
+import PostSummary from 'components/postSummary';
 
 class Content extends React.Component {
 
     componentDidMount() {
         request
-            .get('https://medium.com/@chrislaughlin/latest')
+            .get('http://christopherlaughlin.co.uk/wp-json/wp/v2/posts')
             .set('Accept', 'application/json')
-            .set('Access-Control-Allow-Origin', '*')
-            .end((err, res) => {
-                console.log(res);
+            .end((err, {body}) => {
+                this.setState({
+                    posts: body
+                });
             });
     }
+
+    componentWillMount() {
+        this.setState({posts: []});
+    }
+
+    renderPost = () => {
+        return this.state.posts.map((post, index) => {
+            return <PostSummary
+                key={index}
+                title={post.title.rendered}
+                excerpt={post.excerpt.rendered} />;
+        });
+    };
 
     render() {
         return (
             <div>
-                CONTENT
+                {this.renderPost()}
             </div>
         );
     }
