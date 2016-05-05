@@ -1,3 +1,5 @@
+@import "sidebar";
+
 .main-content {
     display: -webkit-flex;
     display: flex;
@@ -7,4 +9,20 @@
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+}
+
+.flexbox-container {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 70px;
+}
+
+.flexbox-container > div:first-child {
+    width: 80%;
+    padding: 10px;
+}
+
+.flexbox-container > div:nth-child(2) {
+    padding-right: 20px;
 }
