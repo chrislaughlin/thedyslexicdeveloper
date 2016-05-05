@@ -11,13 +11,14 @@ class Content extends React.Component {
             .set('Accept', 'application/json')
             .end((err, {body}) => {
                 this.setState({
-                    posts: body
+                    posts: body,
+                    loaded: true
                 });
             });
     }
 
     componentWillMount() {
-        this.setState({posts: []});
+        this.setState({posts: [], loaded: false});
     }
 
     renderPost = () => {
@@ -30,8 +31,10 @@ class Content extends React.Component {
     };
 
     render() {
+        const loader = this.state.loaded ? null : <div className='loader'></div>;
         return (
             <div className='main-content'>
+                {loader}
                 {this.renderPost()}
             </div>
         );
