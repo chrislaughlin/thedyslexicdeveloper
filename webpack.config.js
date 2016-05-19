@@ -22,7 +22,7 @@ module.exports = {
         libraryTarget: 'umd',
         umdNamedDefine: true,
         library: 'Thedyslexicdeveloper',
-        publicPath: 'http://localhost:8080/'
+        publicPath: 'http://localhost:8089/'
     },
     module: {
         loaders: [
@@ -34,8 +34,9 @@ module.exports = {
     debug: true,
     devtool: 'source-map',
     devServer: {
-        contentBase: './tmp',
-        historyApiFallback: true
+        contentBase: './public',
+        historyApiFallback: true,
+        port: 8089
     },
     eslint:{
         configFile:"./.eslintrc",

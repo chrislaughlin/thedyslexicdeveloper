@@ -2,12 +2,13 @@ import React from 'react';
 import request from 'superagent';
 import PostSummary from 'components/postSummary';
 import rowWithCentreContent  from 'styles/rowWithCentreContent';
+import Loader from 'components/loader';
 
 class Content extends React.Component {
 
     componentDidMount() {
         request
-            .get('http://christopherlaughlin.co.uk/wp-json/wp/v2/posts')
+            .get('http://christopherlaughlin.co.uk/wp-json/wp/v2/posts?context=embed')
             .set('Accept', 'application/json')
             .end((err, {body}) => {
                 this.setState({
@@ -26,15 +27,15 @@ class Content extends React.Component {
             return <PostSummary
                 key={index}
                 title={post.title.rendered}
-                excerpt={post.excerpt.rendered} />;
+                excerpt={post.excerpt.rendered}
+                id={post.id} />;
         });
     };
 
     render() {
-        const loader = this.state.loaded ? null : <div className='loader'></div>;
         return (
             <div className='main-content'>
-                {loader}
+                <Loader loaded={this.state.loaded} />
                 {this.renderPost()}
             </div>
         );

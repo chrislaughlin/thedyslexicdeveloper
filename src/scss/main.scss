@@ -1,5 +1,7 @@
+@import "../../node_modules/normalize.css/normalize.css";
 @import "loader";
 @import "sidebar";
+@import "links";
 
 .main-content {
     display: -webkit-flex;

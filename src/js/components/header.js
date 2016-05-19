@@ -1,5 +1,6 @@
 import React from 'react';
-import rowWithCentreContent  from 'styles/rowWithCentreContent';
+import rowWithCentreContent from 'styles/rowWithCentreContent';
+import { Link } from 'react-router';
 
 export default class extends React.Component {
 
@@ -10,10 +11,7 @@ export default class extends React.Component {
         return (
             <div>
                 <div style={rowWithCentreContent}>
-                    <img ref='headerImage' style={bannerStyles} src='images/banner.jpg' />
-                </div>
-                <div ref='subText' style={rowWithCentreContent}>
-                    {/*<span>The Dyslexic Developer</span>*/}
+                    <a href='/'><img ref='headerImage' style={bannerStyles} src='images/banner.jpg' /></a>
                 </div>
             </div>
         );
