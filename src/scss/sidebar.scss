@@ -17,6 +17,7 @@
     }
     .social {
         width: 150px;
+        padding-top: 5px;
         @include bottomBorder();
         img {
             height: 50px;
@@ -25,5 +26,6 @@
     .time-line {
         padding-top: 20px;
         width: 300px;
+        @include bottomBorder();
     }
 }
