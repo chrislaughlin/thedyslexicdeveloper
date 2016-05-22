@@ -1,4 +1,5 @@
 @import "../../node_modules/normalize.css/normalize.css";
+@import "screensizes";
 @import "loader";
 @import "sidebar";
 @import "links";
@@ -12,6 +13,15 @@
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+    .post-summary {
+        width: 70%;
+        @media #{$tablet} {
+            width: 90%;
+        }
+        @media #{$mobile} {
+            width: 100%;
+        }
+    }
 }
 
 .flexbox-container {
@@ -22,7 +32,6 @@
 }
 
 .flexbox-container > div:first-child {
-    width: 75%;
     padding: 10px;
 }
 

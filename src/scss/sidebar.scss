@@ -3,6 +3,9 @@
         border-bottom: 3px solid black;
     }
     display: flex;
+    @media #{$mobile} {
+        display: none;
+    }
     flex-direction: column;
     align-items: flex-end;
     .title {

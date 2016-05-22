@@ -8,7 +8,7 @@ export default class extends React.Component {
         const { titleStyles, excerptStyles }  = postStyles;
         const { title, excerpt, id } = this.props;
         return (
-            <div style={{width: '70%'}}>
+            <div className='post-summary'>
                 <h1 style={titleStyles}>
                     <Link to={`post/${id}`}>{title}</Link>
                 </h1>
