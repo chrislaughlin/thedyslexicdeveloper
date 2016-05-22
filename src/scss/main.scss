@@ -1,4 +1,3 @@
-@import "../../node_modules/normalize.css/normalize.css";
 @import "screensizes";
 @import "loader";
 @import "sidebar";
@@ -37,4 +36,10 @@
 
 .flexbox-container > div:nth-child(2) {
     padding-right: 60px;
+}
+
+pre, pre[class*="line-numbers"] {
+    background: #272822;
+    border: 1px solid white;
+    border-radius: 5px;
 }
