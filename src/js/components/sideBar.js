@@ -27,6 +27,7 @@ export default class extends React.Component {
                     <img src='images/social/instagram.png' onClick={this.openNewWindow.bind(this, 'instagram')} />
                     <img src='images/social/twitter.png' onClick={this.openNewWindow.bind(this, 'twitter')} />
                 </div>
+                @chrislaughlin
                 <div className='time-line'>
                     <Timeline widgetId={'488378918894723072'}
                               options={{

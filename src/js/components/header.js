@@ -11,7 +11,9 @@ export default class extends React.Component {
         return (
             <div>
                 <div style={rowWithCentreContent}>
-                    <a href='/'><img ref='headerImage' style={bannerStyles} src='images/banner.jpg' /></a>
+                    <Link to={'/'}>
+                        <img ref='headerImage' style={bannerStyles} src='images/banner.jpg' />
+                    </Link>
                 </div>
             </div>
         );

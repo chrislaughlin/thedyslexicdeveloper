@@ -42,7 +42,7 @@ export default class extends React.Component {
     render() {
         const { titleStyles, excerptStyles }  = postStyles;
         return (
-            <div>
+            <div className='post'>
                 <Loader loaded={this.state.loaded} />
                 <h1 style={titleStyles}>
                     {this.renderTitle()}
