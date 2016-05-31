@@ -21,6 +21,7 @@
     "radium": "^0.17.1",
     "react-burger-menu": "^1.8.3",
     "react-dom": "^0.14.2",
+    "react-ga": "^1.4.1",
     "react-router": "^2.0.1",
     "react-twitter-widgets": "^0.2.4",
     "superagent": "^1.8.3"
