@@ -2,6 +2,7 @@ import React from 'react';
 import request from 'superagent';
 import Loader from 'components/loader';
 import postStyles from 'styles/posts';
+import PostFooter from 'components/postFooter';
 
 export default class extends React.Component {
 
@@ -47,9 +48,10 @@ export default class extends React.Component {
                 <h1 style={titleStyles}>
                     {this.renderTitle()}
                 </h1>
-                <div style={excerptStyles}>
+                <div style={Object.assign({}, excerptStyles, {paddingBottom: '25px'})}>
                     {this.renderPostBody()}
                 </div>
+                <PostFooter />
             </div>
         );
     }

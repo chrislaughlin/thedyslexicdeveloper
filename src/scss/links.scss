@@ -1,4 +1,8 @@
-a, a:link, a:hover, a:visited {
-    color: black;
+a, a:link, a:visited {
+    color: #F9DB4E;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
