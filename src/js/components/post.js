@@ -7,8 +7,9 @@ import PostFooter from 'components/postFooter';
 export default class extends React.Component {
 
     componentDidMount() {
+        const postId = this.props.params.id.slice(0, this.props.params.id.indexOf('&'));
         request
-            .get(`http://christopherlaughlin.co.uk/wp-json/wp/v2/posts/${this.props.params.id}`)
+            .get(`http://christopherlaughlin.co.uk/wp-json/wp/v2/posts/${postId}`)
             .set('Accept', 'application/json')
             .end((err, {body}) => {
                 this.setState({
