@@ -1,39 +1,41 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Link from 'gatsby-link';
+import get from 'lodash/get';
+import Helmet from 'react-helmet';
 
-import Bio from '../components/Bio'
+import Header from '../components/header/header';
+import Bio from '../components/bio/Bio';
 
 class BlogIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    render() {
+        const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+        const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
-    return (
-      <div>
-        <Helmet title={siteTitle} />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        return (
+            <div>
+                <Helmet title={siteTitle} />
+
+                <Bio />
+                {posts.map(({ node }) => {
+                    const title = get(node, 'frontmatter.title') || node.fields.slug;
+                    return (
+                        <div key={node.fields.slug}>
+                            <h3>
+                                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                                    {title}
+                                </Link>
+                            </h3>
+                            <small>{node.frontmatter.date}</small>
+                            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                        </div>
+                    );
+                })}
             </div>
-          )
-        })}
-      </div>
-    )
-  }
+        );
+    }
 }
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -57,4 +59,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
