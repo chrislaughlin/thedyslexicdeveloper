@@ -11,6 +11,10 @@ const StyledSocial = styled.div`
   svg {
     margin: 5px;
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 class Social extends Component {
@@ -29,9 +33,24 @@ class Social extends Component {
     render() {
         return (
             <StyledSocial>
-                <Twitter/>
-                <Instagram/>
-                <Github/>
+                <a
+                    href="http://twitter.com/chrislaughlin"
+                    target="_blank"
+                >
+                    <Twitter/>
+                </a>
+                <a
+                    href="http://instagram.com/chrislaughlin"
+                    target="_blank"
+                >
+                    <Instagram/>
+                </a>
+                <a
+                    href="http://github.com/chrislaughlin"
+                    target="_blank"
+                >
+                    <Github/>
+                </a>
             </StyledSocial>
         );
     }
