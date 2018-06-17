@@ -1,4 +1,5 @@
 import React from 'react';
+import 'prismjs/themes/prism-okaidia.css';
 
 import Header from '../components/header/header';
 

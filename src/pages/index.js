@@ -3,6 +3,7 @@ import get from 'lodash/get';
 import Helmet from 'react-helmet';
 import styled from 'styled-components'
 
+import '../styles/post.css';
 import Bio from '../components/bio/Bio';
 import PostSlug from '../components/postSlug/postSlug';
 

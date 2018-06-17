@@ -12,8 +12,7 @@ const StyledSocial = styled.div`
     margin: 5px;
   }
   a {
-    text-decoration: none;
-    color: inherit;
+    color: #000000;
   }
 `;
 
