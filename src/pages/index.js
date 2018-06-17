@@ -1,10 +1,10 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
 import styled from 'styled-components'
 
 import Bio from '../components/bio/Bio';
+import PostSlug from '../components/postSlug/postSlug';
 
 const Page = styled.div`
     display: flex;
@@ -13,6 +13,7 @@ const Page = styled.div`
 `;
 
 class BlogIndex extends React.Component {
+
     render() {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title');
         const posts = get(this, 'props.data.allMarkdownRemark.edges');
@@ -22,20 +23,9 @@ class BlogIndex extends React.Component {
                 <Helmet title={siteTitle} />
 
                 <Bio />
-                {posts.map(({ node }) => {
-                    const title = get(node, 'frontmatter.title') || node.fields.slug;
-                    return (
-                        <div key={node.fields.slug}>
-                            <h3>
-                                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                                    {title}
-                                </Link>
-                            </h3>
-                            <small>{node.frontmatter.date}</small>
-                            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-                        </div>
-                    );
-                })}
+                <div>
+                    {posts.map(({ node }) => <PostSlug node={node}/>)}
+                </div>
             </Page>
         );
     }
