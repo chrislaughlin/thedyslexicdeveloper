@@ -2,9 +2,15 @@ import React from 'react';
 import Link from 'gatsby-link';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
+import styled from 'styled-components'
 
-import Header from '../components/header/header';
 import Bio from '../components/bio/Bio';
+
+const Page = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 class BlogIndex extends React.Component {
     render() {
@@ -12,7 +18,7 @@ class BlogIndex extends React.Component {
         const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
         return (
-            <div>
+            <Page>
                 <Helmet title={siteTitle} />
 
                 <Bio />
@@ -30,7 +36,7 @@ class BlogIndex extends React.Component {
                         </div>
                     );
                 })}
-            </div>
+            </Page>
         );
     }
 }

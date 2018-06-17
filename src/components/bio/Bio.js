@@ -1,31 +1,43 @@
 import React from 'react';
+import styled from 'styled-components';
 
-// Import typefaces
 import profilePic from './profile-pic.jpg';
+import Social from '../social/social';
+
+const ProfilePic = styled.img`
+    height: 100px;
+    border-radius: 50px;
+`;
+
+const StyledBio = styled.div`
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #00000021;
+  padding: 5px;
+  border-radius: 15px;
+  > div {
+    margin-left: 5px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+`;
 
 class Bio extends React.Component {
     render() {
         return (
-            <div
-                style={{
-                    display: 'flex',
-                }}
-            >
-                <img
+            <StyledBio>
+                <ProfilePic
                     src={profilePic}
-                    alt={`Kyle Mathews`}
-                    style={{
-                        marginBottom: 0
-                    }}
+                    alt={`Chris Laughlin`}
                 />
-                <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
-          Francisco building useful things.{' '}
-                    <a href="https://twitter.com/kylemathews">
-            You should follow him on Twitter
-                    </a>
-                </p>
-            </div>
+                <div>
+                    JavaScript nerd making and breaking the web
+                    <Social/>
+                </div>
+            </StyledBio>
         );
     }
 }
