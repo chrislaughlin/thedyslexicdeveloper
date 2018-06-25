@@ -79,6 +79,15 @@ module.exports = {
         `gatsby-plugin-feed`,
         `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-styled-components`
+        `gatsby-plugin-styled-components`,
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                // Setting a color is optional.
+                color: `#F9DB4E`,
+                // Disable the loading spinner.
+                showSpinner: false,
+            },
+        }
     ],
 };
