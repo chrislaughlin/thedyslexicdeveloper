@@ -13,15 +13,16 @@ const StyledBio = styled.div`
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #00000021;
   padding: 5px;
   border-radius: 15px;
+  max-width: 400px;
   > div {
     margin-left: 5px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+    font-size: 12px;
   }
 `;
 
