@@ -68,3 +68,5 @@ the pattern of publishing a module in ES5 code as that's what has always been do
 changed and ES6 is getting more and more support.
 
 If you have views on this or found this post helpful tweet me at [chrislaughlin](https://twitter.com/chrislaughlin)!
+
+**After writing and publishing this post I fould a very relevant post on the babel site [On Consuming (and Publishing) ES2015+ Packages](https://babeljs.io/blog/2018/06/26/on-consuming-and-publishing-es2015+-packages)**
