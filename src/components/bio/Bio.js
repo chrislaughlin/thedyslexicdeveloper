@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import profilePic from './profile-pic.jpg';
 import Social from '../social/social';
 
+import Link from '../link/link';
+
 const ProfilePic = styled.img`
     height: 100px;
     border-radius: 50px;
@@ -37,6 +39,11 @@ class Bio extends React.Component {
                 <div>
                     JavaScript nerd making and breaking the web
                     <Social/>
+                    <Link
+                        to={'/about'}
+                    >
+                        About me ->
+                    </Link>
                 </div>
             </StyledBio>
         );

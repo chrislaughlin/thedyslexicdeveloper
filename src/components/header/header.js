@@ -1,8 +1,8 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import banner from './banner.jpg';
+import Link from '../link/link';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -25,14 +25,9 @@ const Header = () => {
                 />
             </Link>
             <Link
-                style={{
-                    boxShadow: 'none',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                }}
                 to={'/'}
             >
-                <span>The</span> <span>Dyslexic</span> <span>Developer</span>
+                The Dyslexic Developer
             </Link>
         </StyledHeader>
     );
