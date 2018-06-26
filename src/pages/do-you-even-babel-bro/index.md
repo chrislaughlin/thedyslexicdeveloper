@@ -1,6 +1,6 @@
 ---
 title: Do You Even Babel Bro!
-date: "2018-06-25"
+date: "2018-06-26"
 ---
 
 ![Do You Even Babel Bro!](./doyoueven.jpg)
