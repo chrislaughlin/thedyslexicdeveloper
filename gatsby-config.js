@@ -3,7 +3,7 @@ module.exports = {
         title: 'The dyslexic developer',
         author: 'Chris Laughlin',
         description: 'Personal site and blog for Chris Laughlin',
-        siteUrl: 'http://thedyslexicdeveloper.com/',
+        siteUrl: 'https://thedyslexicdeveloper.com/',
     },
     pathPrefix: '/gatsby-starter-blog',
     plugins: [
@@ -73,7 +73,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
-                //trackingId: `ADD YOUR TRACKING ID HERE`,
+                trackingId: `UA-78587148-1`,
             },
         },
         `gatsby-plugin-feed`,
