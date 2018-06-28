@@ -44,6 +44,11 @@ class Bio extends React.Component {
                     >
                         About me ->
                     </Link>
+                    <Link
+                        to={'/projects'}
+                    >
+                        Projects ->
+                    </Link>
                 </div>
             </StyledBio>
         );
