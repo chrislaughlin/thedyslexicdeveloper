@@ -1,5 +1,5 @@
 ---
-title: Quick Tip: Boolean Filter
+title: Quick Tip - Boolean Filter
 date: "2018-06-28"
 ---
 
