@@ -41,6 +41,30 @@ when using call backs its best to follow a pattern when it comes to naming the p
 
 #### Higher Order Functions
 
+A simple example of a higher order function is shown by taking a function and expanding on it.
+
+```jsx
+const add = (a, b) => a + b;
+add(2, 2); // 4
+```
+
+We can then extend this to make a 10 function:
+
+```jsx
+const add = (a, b) => a + b;
+const addPostFix = postFix => {
+    return a => add(a, postFix)
+};
+
+const addFive = addPostFix(5);
+const addTen = addPostFix(10);
+
+addFive(5); //10
+addTen(5);  //15
+```
+
+We can now create any number of add functions that have a postFix that will get added to the first number.
+
 For higher order functions I find it best to give some sort of real world example. Lets use React for this:
 
 If we have a list of buttons that preform an action. Lets say they can trigger our make pizza code from above.
