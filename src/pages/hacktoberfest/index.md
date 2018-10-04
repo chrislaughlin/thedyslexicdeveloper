@@ -22,3 +22,6 @@ So other than providing value to OSS and getting more street cred on Github what
 an even more cool sticker to add to your laptop so you can look 1337.
 
 **So what are you waiting for get out there ans get some PR's open!**
+
+_Full disclosure this blog is run from a git repo and each post is a PR so these will count towards my total, however I
+ill try to get contributions to other projects in the month._
