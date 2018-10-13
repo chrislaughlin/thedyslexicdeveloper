@@ -19,7 +19,7 @@ class Template extends React.Component {
                 }}
             >
                 <Header/>
-                {children()}
+                {children}
             </div>
         );
     }

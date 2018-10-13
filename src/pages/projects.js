@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Eye from 'react-icons/lib/fa/eye';
-import Fork from 'react-icons/lib/fa/code-fork';
-import Github from 'react-icons/lib/fa/github';
-import Star from 'react-icons/lib/fa/star';
+
+import {
+    FaEye,
+    FaCodeBranch,
+    FaGithub,
+    FaStar
+} from 'react-icons/fa';
 
 const ProjectList = styled.div`
   display: grid;
@@ -78,7 +81,7 @@ class Projects extends Component {
                                         target="_blank"
                                         href={`${project.html_url}`}
                                     >
-                                        <Github/>
+                                        <FaGithub/>
                                     </a>
                                 </ProjectIcon>
                                 <ProjectIcon>
@@ -86,15 +89,15 @@ class Projects extends Component {
                                         target="_blank"
                                         href={`${project.html_url}/fork?fragment=1`}
                                     >
-                                        <Fork/>
+                                        <FaCodeBranch/>
                                     </a>
                                 </ProjectIcon>
                                 <ProjectIcon>
-                                    <Star/>
+                                    <FaStar/>
                                     {project.stargazers_count}
                                 </ProjectIcon>
                                 <ProjectIcon>
-                                    <Eye/>
+                                    <FaEye/>
                                     {project.watchers}
                                 </ProjectIcon>
                             </ProjectIcons>

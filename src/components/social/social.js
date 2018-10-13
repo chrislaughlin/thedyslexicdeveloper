@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Twitter from 'react-icons/lib/fa/twitter';
-import Instagram from 'react-icons/lib/fa/instagram';
-import Github from 'react-icons/lib/fa/github';
+import {
+    FaTwitter,
+    FaInstagram,
+    FaGithub,
+} from 'react-icons/fa';
 import styled from 'styled-components';
 
 const StyledSocial = styled.div`
@@ -36,19 +38,19 @@ class Social extends Component {
                     href="http://twitter.com/chrislaughlin"
                     target="_blank"
                 >
-                    <Twitter/>
+                    <FaTwitter/>
                 </a>
                 <a
                     href="http://instagram.com/chrislaughlin"
                     target="_blank"
                 >
-                    <Instagram/>
+                    <FaInstagram/>
                 </a>
                 <a
                     href="http://github.com/chrislaughlin"
                     target="_blank"
                 >
-                    <Github/>
+                    <FaGithub/>
                 </a>
             </StyledSocial>
         );
