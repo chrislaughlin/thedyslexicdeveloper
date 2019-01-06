@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
 
 import profilePic from './profile-pic.jpg';
-import Social from '../social/social';
-
-import Link from '../link/link';
 
 const ProfilePic = styled.img`
     height: 100px;
@@ -28,27 +26,50 @@ const StyledBio = styled.div`
   }
 `;
 
+const SiteTitle = styled(Link).attrs({
+    to: '/'
+})`
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #F9DB4E;  
+`;
+
+const SocialLink = styled.span`
+    padding-left: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+`;
+
 class Bio extends React.Component {
     render() {
         return (
             <StyledBio>
-                <ProfilePic
-                    src={profilePic}
-                    alt={`Chris Laughlin`}
-                />
+                <Link to="/">
+                    <ProfilePic
+                        src={profilePic}
+                        alt={`Chris Laughlin`}
+                    />
+                </Link>
                 <div>
-                    JavaScript nerd making and breaking the web
-                    <Social/>
-                    <Link
-                        to={'/about'}
-                    >
-                        About me ->
-                    </Link>
-                    <Link
-                        to={'/projects'}
-                    >
-                        Projects ->
-                    </Link>
+                    <SiteTitle>
+                        The dyslexic developer
+                    </SiteTitle>
+                    <SocialLink>
+                        <a
+                            href="https://twitter.com/chrislaughlin"
+                            target="_blank"
+                        >
+                            Twitter
+                        </a>
+                    </SocialLink>
+                    <SocialLink>
+                        <a
+                            href="https://github.com/chrislaughlin"
+                            target="_blank"
+                        >
+                            Github
+                        </a>
+                    </SocialLink>
                 </div>
             </StyledBio>
         );

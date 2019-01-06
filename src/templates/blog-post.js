@@ -1,8 +1,22 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import get from 'lodash/get';
+import styled from 'styled-components';
 
-import Bio from '../components/bio/Bio';
+require("prismjs/themes/prism-okaidia.css");
+
+import Layout from '../components/layout/layout';
+
+import h1 from '../styles/h1';
+
+const Title = styled.span`
+  ${h1}
+`;
+
+const PostDateTime = styled.span`
+  font-size: 12px;
+  font-style: italic;
+  padding-left: 10px;
+`;
 
 class BlogPostTemplate extends React.Component {
     render() {
@@ -10,19 +24,13 @@ class BlogPostTemplate extends React.Component {
         const siteTitle = get(this.props, 'data.site.siteMetadata.title');
 
         return (
-            <div>
-                <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-                <h1>{post.frontmatter.title}</h1>
-                <p
-                    style={{
-                        display: 'block',
-                    }}
-                >
+            <Layout siteTitle={siteTitle}>
+                <Title>{post.frontmatter.title}</Title>
+                <PostDateTime>
                     {post.frontmatter.date}
-                </p>
+                </PostDateTime>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
-                <Bio />
-            </div>
+            </Layout>
         );
     }
 }

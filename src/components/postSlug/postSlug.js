@@ -3,10 +3,10 @@ import get from 'lodash/get';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
+import h1 from '../../styles/h1';
+
 const Title = styled(Link)`
-    color: #F9DB4E;
-    text-decoration: none;
-    font-size: 40px;
+    ${h1}
 `;
 
 const Excerpt = styled.p`
