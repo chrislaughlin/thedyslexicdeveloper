@@ -1,3 +1,8 @@
 a {
     color: #FF5722;
 }
+
+img {
+    display: block;
+    margin: 0 auto;
+}

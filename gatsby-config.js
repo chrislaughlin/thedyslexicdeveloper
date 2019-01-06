@@ -88,6 +88,7 @@ module.exports = {
                 // Disable the loading spinner.
                 showSpinner: false,
             },
-        }
+        },
+        `gatsby-plugin-favicon`
     ],
 };

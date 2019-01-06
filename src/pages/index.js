@@ -1,17 +1,9 @@
 import React from 'react';
 import get from 'lodash/get';
-import Helmet from 'react-helmet';
-import styled from 'styled-components'
 
-import '../styles/post.css';
-import Bio from '../components/bio/Bio';
 import PostSlug from '../components/postSlug/postSlug';
 
-const Page = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
+import Layout from '../components/layout/layout';
 
 class BlogIndex extends React.Component {
 
@@ -20,14 +12,9 @@ class BlogIndex extends React.Component {
         const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
         return (
-            <Page>
-                <Helmet title={siteTitle} />
-
-                <Bio />
-                <div>
-                    {posts.map(({ node }) => <PostSlug node={node}/>)}
-                </div>
-            </Page>
+            <Layout siteTitle={siteTitle}>
+                {posts.map(({ node }) => <PostSlug node={node}/>)}
+            </Layout>
         );
     }
 }
