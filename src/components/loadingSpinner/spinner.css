@@ -1,0 +1,41 @@
+.spinner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.circleloader {
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
+    margin-top: -10px;
+    border-radius: 16px;
+    width: 80px;
+    height: 20px;
+    padding: 4px;
+    background: rgb(250, 220, 63);
+}
+.circleloader:before {
+    content: '';
+    position: absolute;
+    border-radius: 16px;
+    width: 20px;
+    height: 12px;
+    left: 0;
+    background: #FFF;
+    -webkit-animation: push 1s infinite linear;
+    animation: push 1s infinite linear;
+}
+
+@-webkit-keyframes push {
+    50% {
+        left: 56px;
+    }
+}
+@keyframes push {
+    50% {
+        left: 56px;
+    }
+}

@@ -70,6 +70,11 @@ class Bio extends React.Component {
                             Github
                         </a>
                     </SocialLink>
+                    <SocialLink>
+                        <Link to="/projects">
+                            PROJECTS
+                        </Link>
+                    </SocialLink>
                 </div>
             </StyledBio>
         );
