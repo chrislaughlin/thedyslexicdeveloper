@@ -89,6 +89,7 @@ module.exports = {
                 showSpinner: false,
             },
         },
-        `gatsby-plugin-favicon`
+        `gatsby-plugin-favicon`,
+				`gatsby-remark-reading-time`
     ],
 };
