@@ -12,7 +12,10 @@ class BlogIndex extends React.Component {
         const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
         return (
-            <Layout siteTitle={siteTitle}>
+            <Layout
+              siteTitle={siteTitle}
+              isIndex
+            >
                 {posts.map(({ node }) => <PostSlug node={node}/>)}
             </Layout>
         );

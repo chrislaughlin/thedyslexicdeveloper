@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 import '../../styles/index.css';
 import '../../styles/post.css';
@@ -15,13 +15,17 @@ const Page = styled.div`
     }
 `;
 
-const Layout = ({siteTitle, children}) => {
+const Layout = ({
+    siteTitle,
+    isIndex,
+    children
+}) => {
 
     return (
         <Page>
             <Helmet title={siteTitle} />
+            <Bio isIndex={isIndex}/>
 
-            <Bio />
             <div className="content">
                 {children}
             </div>
