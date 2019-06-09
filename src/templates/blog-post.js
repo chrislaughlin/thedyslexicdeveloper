@@ -18,6 +18,11 @@ const PostDateTime = styled.span`
   padding-left: 10px;
 `;
 
+const PostTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 class BlogPostTemplate extends React.Component {
     render() {
         const post = this.props.data.markdownRemark;
@@ -25,10 +30,12 @@ class BlogPostTemplate extends React.Component {
 
         return (
             <Layout siteTitle={siteTitle}>
-                <Title>{post.frontmatter.title}</Title>
-                <PostDateTime>
-                    {post.frontmatter.date} - {post.fields.readingTime.text}
-                </PostDateTime>
+                <PostTitle>
+                    <Title>{post.frontmatter.title}</Title>
+                    <PostDateTime>
+                        {post.frontmatter.date} - {post.fields.readingTime.text}
+                    </PostDateTime>
+                </PostTitle>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </Layout>
         );

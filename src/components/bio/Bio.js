@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
@@ -40,45 +40,53 @@ const SocialLink = styled.span`
     text-transform: uppercase;
 `;
 
-class Bio extends React.Component {
-    render() {
-        return (
-            <StyledBio>
+const Bio = ({
+    isIndex
+}) => {
+    return (
+        <StyledBio>
+            {
+                isIndex &&
                 <Link to="/">
                     <ProfilePic
                         src={profilePic}
                         alt={`Chris Laughlin`}
                     />
                 </Link>
-                <div>
-                    <SiteTitle>
-                        The dyslexic developer
-                    </SiteTitle>
-                    <SocialLink>
-                        <a
-                            href="https://twitter.com/chrislaughlin"
-                            target="_blank"
-                        >
-                            Twitter
-                        </a>
-                    </SocialLink>
-                    <SocialLink>
-                        <a
-                            href="https://github.com/chrislaughlin"
-                            target="_blank"
-                        >
-                            Github
-                        </a>
-                    </SocialLink>
-                    <SocialLink>
-                        <Link to="/projects">
-                            PROJECTS
-                        </Link>
-                    </SocialLink>
-                </div>
-            </StyledBio>
-        );
-    }
-}
+            }
+            <div>
+                <SiteTitle>
+                  The dyslexic developer
+                </SiteTitle>
+                {
+                    isIndex &&
+                      <Fragment>
+                          <SocialLink>
+                              <a
+                                  href="https://twitter.com/chrislaughlin"
+                                  target="_blank"
+                              >
+                                  Twitter
+                              </a>
+                          </SocialLink>
+                          <SocialLink>
+                              <a
+                                  href="https://github.com/chrislaughlin"
+                                  target="_blank"
+                              >
+                                  Github
+                              </a>
+                          </SocialLink>
+                          <SocialLink>
+                              <Link to="/projects">
+                                  PROJECTS
+                              </Link>
+                          </SocialLink>
+                      </Fragment>
+                }
+            </div>
+        </StyledBio>
+    );
+};
 
 export default Bio;

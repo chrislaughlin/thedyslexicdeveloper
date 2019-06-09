@@ -23,7 +23,7 @@ const PostSlug = ({node}) => {
     return (
         <div key={node.fields.slug}>
             <Title style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                    {title}
+                {title}
             </Title>
             <SlugDate> - {node.frontmatter.date}</SlugDate>
             <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
