@@ -1,6 +1,6 @@
 ---
 title: useKonamiCode
-date: "2019Ω-06-10"
+date: "2019-06-10"
 ---
 
 ![Konami Code](./konami-code.gif)
