@@ -16,7 +16,7 @@ good understanding.
 So what are these edge cases I have mentioned? Recently in work I ran into a case where using a index value for a key would
 result in a the same two components rendering with the same DOM values. Let see an example:
 
-<img src="exmaple.gif" alt="Example" style="width:50%;height:50%;margin-bottom:-10%;"/>
+<img src="exmaple.gif" alt="Example"/>
 
 In the above example I have a toggle button that changes which Inputs should be shown Either input `ONE` or input `TWO` and
 `THREE`. This is done via a very simple form generation component that takes an array of inputs and renders as many `<input />`
