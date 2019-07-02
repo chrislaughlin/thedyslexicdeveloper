@@ -47,7 +47,7 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.13.0",
     "gh-pages": "^2.0.1",
-    "prettier": "^1.14.3",
+    "prettier": "^1.18.2",
     "prop-types": "latest"
   },
   "homepage": "https://github.com/chrislaughlin/thedyslexicdeveloper#readme",
