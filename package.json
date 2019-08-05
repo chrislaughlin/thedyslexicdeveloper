@@ -14,7 +14,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-react": "^6.24.1",
-    "gatsby": "^2.0.22",
+    "gatsby": "^2.13.51",
     "gatsby-link": "^2.1.1",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-feed": "^2.1.2",
