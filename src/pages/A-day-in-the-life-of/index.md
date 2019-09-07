@@ -22,7 +22,7 @@ Usually after standup I’ll try and get into some coding or depending on the da
 
 For my coding time I will be working on whatever new feature we are building out or fixing bugs. As the team lead I try to assign out work based on people’s abilities I also like to take on the technical tasks and major defects. This allows the rest of the team focus on delivering the big ticket features. 	I also spend time looking into our shared JavaScript libraries and tool this could be adding a new UI component or reviewing a pull request from a different team. 
 
-##12:30 - 1:30pm Lunch time 
+## 12:30 - 1:30pm Lunch time 
 My team usually break for lunch at the same time everyday. I’m on a health kick (which is not going successfully) and batch cook my lunch at the stars of the week. This means I rarely go out for lunch with the team. I do probably one of the most unhealthy lunch time practices and eat my lunch at my desk while watching BBC news and YouTube videos, sometimes tech related mostly random stuff. If I’m under pressure to release a bug/feature I’ll do some coding while stuffing my face. On some rare occasions we will go out for lunch to a sit down meal and "one" beer. 
 
 ## 1:30-6:00pm Back to work
@@ -34,10 +34,10 @@ Depending on the day I can finish up at different times,	I work with teams acros
 ## 7:00 - 8:00pm Dinner time 
 Time to get home and enjoy dinner with the family this is a time to relax and forget about that bug I couldn’t fix all day. Chill out and forget about tech. 
 
-#8:00pm-onwards 
+## 8:00pm-onwards 
 This is the closing off for my day I usually chill watching random YouTube videos endlessly scrolling through Facebook, Twitter and Reddit. If I’m feeling that I really want to continue my bad habits I’ll pull out my laptop and start working again usually joined with a beer or other delicious beverage. If I have any side projects on the go I’ll try and get some work done on them too. I don’t have many hobbies so always end up back at coding or learning more JavaScript at night time. Jokes aside about working at night this is not something expected of me by work but more a bad habit I have had ever since I started in tech. I’m a bit of a workaholic I actually enjoy it so find it hard at times to see the bad side of this. 
 
-1:00-3:00am Bed time 
+## 1:00-3:00am Bed time 
 This is far too late to be going to sleep but I’m I’m a night owl and proud. 
 
 Hopefully this is a interesting insight into the day in the life of a software engineer. 
