@@ -90,6 +90,7 @@ module.exports = {
             },
         },
         `gatsby-plugin-favicon`,
-				`gatsby-remark-reading-time`
+				`gatsby-remark-reading-time`,
+        `gatsby-plugin-mdx`
     ],
 };
