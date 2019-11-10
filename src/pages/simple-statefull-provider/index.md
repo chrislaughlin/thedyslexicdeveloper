@@ -1,6 +1,6 @@
 ---
 title: Simple Stateful Provider
-date: "2018-11-10"
+date: "2019-11-10"
 ---
 
 As React hooks mature are are more wildly used I have been updating part of my applications to be more hooks focused. 
