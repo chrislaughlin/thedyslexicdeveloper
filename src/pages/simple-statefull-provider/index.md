@@ -11,7 +11,7 @@ post from [Kent C. Dodds](https://twitter.com/kentcdodds/). It describes a great
 use it in an application. You should read the post from Kent before continuing. 
 
 I really loved this pattern and started using it thought my apps, however having to copy/paste the code from Kent's blog post 
-was not sustainable. So I decided to create wrapper around this pattern. Introducing Simple Statefull Provider, and yes I know
+was not sustainable. So I decided to create wrapper around this pattern. Introducing [Simple Statefull Provider](https://www.npmjs.com/package/simple-statefull-provider), and yes I know
  stateful is spelt wrong. I am the Dyslexic Developer after all. 
  
  ## So what does Simple Statefull Provider do?
