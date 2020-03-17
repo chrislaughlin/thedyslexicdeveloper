@@ -9,6 +9,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import styled from 'styled-components';
+import { motion } from "framer-motion"
 
 import { rhythm } from "../utils/typography"
 
@@ -18,6 +19,8 @@ const StyledSocialLink = styled.a.attrs({
   margin-left: 5px;
   margin-right: 5px;
 `;
+
+
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -46,11 +49,21 @@ const Bio = () => {
   `)
 
   const { author, social } = data.site.siteMetadata
+
+  const variants = {
+    hidden: { scale: 0.2 },
+    visible: { scale: 1 },
+  }
+
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+      transition={{ duration: 1 }}
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginBottom: rhythm(2.5)
       }}
     >
       <Image
@@ -82,7 +95,7 @@ const Bio = () => {
           Github
         </StyledSocialLink>
       </p>
-    </div>
+    </motion.div>
   )
 }
 
