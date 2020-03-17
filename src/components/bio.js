@@ -8,8 +8,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import styled from 'styled-components';
 
 import { rhythm } from "../utils/typography"
+
+const StyledSocialLink = styled.a.attrs({
+  target: '_blank'
+})`
+  margin-left: 5px;
+  margin-right: 5px;
+`;
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -29,6 +37,8 @@ const Bio = () => {
           }
           social {
             twitter
+            instagram
+            github
           }
         }
       }
@@ -57,11 +67,20 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        Opinionated rambles by <strong>{author.name}</strong> {author.summary}
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        Follow me on
+        <StyledSocialLink href={`https://twitter.com/${social.twitter}`}>
+           Twitter
+        </StyledSocialLink>
+        ,
+        <StyledSocialLink href={`https://instagram.com/${social.instagram}`}>
+          Instagram
+        </StyledSocialLink>
+        or
+        <StyledSocialLink href={`https://github.com/${social.github}`}>
+          Github
+        </StyledSocialLink>
       </p>
     </div>
   )
