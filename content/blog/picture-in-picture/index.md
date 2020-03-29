@@ -9,7 +9,7 @@ of the sites content, even allowing users to move onto new pages. A Great exampl
 ![Picture in Picture Youtube](./youTube-example.gif)
 
 The API is very easy to work with and can add value to your site. Lets get started with a simple example. All the code
-for this can be found [here](https://github.com/chrislaughlin/thedyslexicdeveloper/blob/master/src/pages/pic-in-pic.js) with the final working example [here](/picture-in-picture)
+for this can be found [here](https://github.com/chrislaughlin/thedyslexicdeveloper/blob/master/src/pages/pic-in-pic.js) with the final working example [here](/pic-in-pic)
 
 ### Setting up the video content
 
