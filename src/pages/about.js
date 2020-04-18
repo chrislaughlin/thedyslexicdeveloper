@@ -26,7 +26,16 @@ const StyledAboutMeSection = styled.section`
 `;
 
 const StyledAboutMeSectionTitle = styled.a`
-  font-size: 20px;
+  font-size: 3rem;
+`;
+
+const StyledList = styled.ul`
+  list-style: none;
+  
+  li {
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
 `;
 
 const About = ({ data, location }) => {
@@ -73,6 +82,112 @@ const About = ({ data, location }) => {
           >
             here
           </InLineLink> and see all previous coding videos
+        </p>
+      </StyledAboutMeSection>
+      <StyledAboutMeSection
+        id="talks"
+      >
+        <StyledAboutMeSectionTitle
+          href="#talks"
+        >
+          Talks
+        </StyledAboutMeSectionTitle>
+        <p>
+          I am a regular <StyledHighLightedText> speaker </StyledHighLightedText> at local
+          <StyledHighLightedText> meetups </StyledHighLightedText> and have spoken at a number of
+          <StyledHighLightedText> conferences </StyledHighLightedText>. I have also organized and spoken at internal work
+          <StyledHighLightedText> lunch and learn </StyledHighLightedText> sessions.
+        </p>
+        <p>
+          <StyledWhoQuestion>
+            Meetups:
+          </StyledWhoQuestion>
+          <StyledList>
+            <li>
+              <InLineLink link="https://www.meetup.com/Belfast-JS/">
+                Belfast JS
+              </InLineLink>
+            </li>
+          </StyledList>
+        </p>
+        <p>
+          <StyledWhoQuestion>
+            Conferences:
+          </StyledWhoQuestion>
+          <StyledList>
+            <li>
+              <InLineLink link="https://youtu.be/8GCRPffeAB8">
+                WFH Conf 2020: Protecting your npm dependencies
+              </InLineLink>
+            </li>
+            <li>
+              <InLineLink link="https://youtu.be/EsEnOdqVukQ">
+                ReactiveConf 2019: Protecting your npm dependencies
+              </InLineLink>
+            </li>
+            <li>
+              <InLineLink link="https://youtu.be/f8U1hoOlBUk">
+                JSDayIE 2019: Protecting your npm dependencies
+              </InLineLink>
+            </li>
+            <li>
+              <InLineLink link="https://youtu.be/g-Mb-XlteAY">
+                NI Dev Conf 2019: All your packages are belong to us - Protecting your npm dependencies
+              </InLineLink>
+            </li>
+            <li>
+              <InLineLink link="https://youtu.be/K7EIiHqV7r0">
+                NI Dev Conf 2018: There’s no Imposters Here
+              </InLineLink>
+            </li>
+            <li>
+              <InLineLink link="https://2017.nidevconf.com/sessions/chrislaughlin/">
+                NI Dev Conf 2017: Top 5 Chrome Developer Tools Features
+              </InLineLink>
+            </li>
+          </StyledList>
+        </p>
+      </StyledAboutMeSection>
+      <StyledAboutMeSection
+        id="publications"
+      >
+        <StyledAboutMeSectionTitle
+          href="#publications"
+        >
+          Publications
+        </StyledAboutMeSectionTitle>
+        <p>
+          I have been published on <StyledHighLightedText> external </StyledHighLightedText> blogs and contributed to
+          <StyledHighLightedText> books </StyledHighLightedText>
+        </p>
+        <p>
+          <StyledWhoQuestion>
+            Blogs:
+          </StyledWhoQuestion>
+          <StyledList>
+            <li>
+              <InLineLink link="https://www.sitepoint.com/style-react-components-styled-components/">
+                SitePoint 2017: Styling in React: From External CSS to Styled Components
+              </InLineLink>
+            </li>
+            <li>
+              <InLineLink link="https://www.sitepoint.com/getting-started-with-codemods/">
+                SitePoint 2017: Refactor Code in Your Lunch Break: Getting Started with Codemods
+              </InLineLink>
+            </li>
+          </StyledList>
+        </p>
+        <p>
+          <StyledWhoQuestion>
+            Books:
+          </StyledWhoQuestion>
+          <StyledList>
+            <li>
+              <InLineLink link="https://www.amazon.com/Understanding-Internet-Applications-Information-Professional/dp/1843344998">
+                Chandos Publishing 2009: Understanding the Internet: A Glimpse into the Building Blocks, Applications, Security and Hidden Secrets of the Web
+              </InLineLink>
+            </li>
+          </StyledList>
         </p>
       </StyledAboutMeSection>
     </Layout>
