@@ -3,6 +3,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import styled, { css } from 'styled-components';
+import InLineLink from "../components/inLineLink"
 
 const baseHighlightStyles = css`
   font-style: italic;
@@ -18,6 +19,16 @@ const StyledHighLightedText = styled.span`
   ${baseHighlightStyles}
 `;
 
+const StyledAboutMeSection = styled.section`
+  p {
+    margin-top: 10px;
+  }
+`;
+
+const StyledAboutMeSectionTitle = styled.a`
+  font-size: 20px;
+`;
+
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   return (
@@ -26,7 +37,7 @@ const About = ({ data, location }) => {
       <h1>
         About Me
       </h1>
-      <section>
+      <StyledAboutMeSection>
         <p>
           <StyledWhoQuestion>Who is the Dyslexic Developer?</StyledWhoQuestion> a great question that one one has asked.
           I still feel the need to explain.
@@ -41,7 +52,29 @@ const About = ({ data, location }) => {
           list a mile long of things to try and learn that grows every day. Check out some of the adventures
           he's taken below.
         </p>
-      </section>
+      </StyledAboutMeSection>
+      <StyledAboutMeSection
+        id="live-streaming"
+      >
+        <StyledAboutMeSectionTitle
+          href="#live-streaming"
+        >
+          Live Streaming
+        </StyledAboutMeSectionTitle>
+        <p>
+          I run a weekly live stream on <StyledHighLightedText> YouTube </StyledHighLightedText>, where I try out new web
+          tech and build small projects. I always have a <StyledHighLightedText> drink  </StyledHighLightedText> at hand to
+          help me along the way.
+        </p>
+        <p>
+          You can subscribe to the channel
+          <InLineLink
+            link="https://www.youtube.com/channel/UCMsliAfPkd00UdKJVAOzWWw/"
+          >
+            here
+          </InLineLink> and see all previous coding videos
+        </p>
+      </StyledAboutMeSection>
     </Layout>
   )
 }
