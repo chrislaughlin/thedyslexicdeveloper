@@ -13,9 +13,9 @@ import { motion } from "framer-motion"
 
 import { rhythm } from "../utils/typography"
 
-const StyledSocialLink = styled.a.attrs({
-  target: '_blank'
-})`
+const StyledSocialLink = styled.a.attrs(
+  props => ({ target: props.self ? '_self' : '_blank'})
+)`
   margin-left: 5px;
   margin-right: 5px;
 `;
@@ -93,6 +93,13 @@ const Bio = () => {
         or
         <StyledSocialLink href={`https://github.com/${social.github}`}>
           Github
+        </StyledSocialLink>
+         more about me
+        <StyledSocialLink
+          href="/about"
+          self
+        >
+          here
         </StyledSocialLink>
       </p>
     </motion.div>
