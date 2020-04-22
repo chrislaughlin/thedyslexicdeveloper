@@ -71,17 +71,25 @@ const About = ({ data, location }) => {
           Live Streaming
         </StyledAboutMeSectionTitle>
         <p>
-          I run a weekly live stream on <StyledHighLightedText> YouTube </StyledHighLightedText>, where I try out new web
+          I run a weekly live stream on <StyledHighLightedText> Twitch </StyledHighLightedText>, where I try out new web
           tech and build small projects. I always have a <StyledHighLightedText> drink  </StyledHighLightedText> at hand to
-          help me along the way.
+          help me along the way. All Streams are uploaded to <StyledHighLightedText> Youtube </StyledHighLightedText> after
         </p>
         <p>
           You can subscribe to the channel
           <InLineLink
-            link="https://www.youtube.com/channel/UCMsliAfPkd00UdKJVAOzWWw/"
+            link="https://www.twitch.tv/chrislaughlin"
           >
             here
           </InLineLink> and see all previous coding videos
+        </p>
+            <p>
+          You can see all previous coding videos
+          <InLineLink
+            link="https://www.youtube.com/channel/UCMsliAfPkd00UdKJVAOzWWw/"
+          >
+            here
+          </InLineLink>
         </p>
       </StyledAboutMeSection>
       <StyledAboutMeSection
