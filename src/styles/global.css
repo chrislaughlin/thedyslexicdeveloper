@@ -1,6 +1,20 @@
+/*default styles to dark mode*/
+:root {
+    --bg-color: #000000;
+    --text-color: #f5eded;
+}
+
+/* if the user has light change */
+@media (prefers-color-scheme: light) {
+    body {
+        --bg-color: #eee;
+        --text-color: black;
+    }
+}
+
 body {
-    background-color: #000000;
-    color: #f5eded;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 a {
