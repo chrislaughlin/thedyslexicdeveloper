@@ -3,13 +3,13 @@ title: Picture In Picture
 date: "2020-03-29"
 ---
 
-The Picture in Picture APi allows users to continue to consume video content on your site while also exploring the rest
+The Picture in Picture API allows users to continue to consume video content on your site while also exploring the rest
 of the sites content, even allowing users to move onto new pages. A Great example of this in on the YouTube site.
 
 ![Picture in Picture Youtube](./youTube-example.gif)
 
 The API is very easy to work with and can add value to your site. Lets get started with a simple example. All the code
-for this can be found [here](https://github.com/chrislaughlin/thedyslexicdeveloper/blob/master/src/pages/pic-in-pic.js) with the final working example [here](/pic-in-pic)
+for this can be found [here](https://github.com/chrislaughlin/thedyslexicdeveloper/blob/master/src/pages/pic-in-pic.js) with the final working example [here](/pic-in-pic).
 
 ### Setting up the video content
 
@@ -135,3 +135,6 @@ fully functional picture in picture player as seen below.
 
 ![Final Example](./final-example.gif)
 
+### Resources
+* [W3C Picture-in-Picture](https://w3c.github.io/picture-in-picture/): the Editor's Draft of the W3C specification.
+* [Picture-in-Picture: Supported Platforms, APIs and Thoughts](https://ottball.com/whats-popping-picture-in-picture/): a guide on how to achieve Picture-in-Picture across various platforms, even when the W3C Picture-in-Picture API isn't available.
