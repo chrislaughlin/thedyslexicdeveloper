@@ -10,7 +10,7 @@ module.exports = {
     social: {
       twitter: `chrislaughlin`,
       instagram: `chrislaughlin`,
-      github: `chrislaughlin`
+      github: `chrislaughlin`,
     },
   },
   plugins: [

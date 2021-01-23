@@ -62,8 +62,7 @@ const Bio = () => {
       variants={variants}
       transition={{ duration: 1 }}
       style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5)
+        display: `flex`
       }}
     >
       <Image

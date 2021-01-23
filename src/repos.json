@@ -1,0 +1,134 @@
+[
+    {
+        "name": "console-meow",
+        "description": "Don't console.log it console.meow it!",
+        "url": "github.com/chrislaughlin/console-meow",
+        "shortDescriptionHTML": "Don't console.log it console.meow it!"
+    },
+    {
+        "name": "console-json",
+        "description": "To lazy to type `JSON.stringify(obj, null, indent)` try `console.json(obj)`",
+        "url": "github.com/chrislaughlin/console-json",
+        "shortDescriptionHTML": "To lazy to type `JSON.stringify(obj, null, indent)` try `console.json(obj)`"
+    },
+    {
+        "name": "react-short-keys",
+        "description": "Keyboard shortcut component for React",
+        "url": "github.com/chrislaughlin/react-short-keys",
+        "shortDescriptionHTML": "Keyboard shortcut component for React"
+    },
+    {
+        "name": "whatsmyjam",
+        "description": "Displays the current spotify song I'm listening to",
+        "url": "github.com/chrislaughlin/whatsmyjam",
+        "shortDescriptionHTML": "Displays the current spotify song I'm listening to"
+    },
+    {
+        "name": "prop-type-utils",
+        "description": "A collection of utility functions for react prop types",
+        "url": "github.com/chrislaughlin/prop-type-utils",
+        "shortDescriptionHTML": "A collection of utility functions for react prop types"
+    },
+    {
+        "name": "yo-total",
+        "description": "Yo Sushi bill calculator. ",
+        "url": "github.com/chrislaughlin/yo-total",
+        "shortDescriptionHTML": "Yo Sushi bill calculator. "
+    },
+    {
+        "name": "npm-package-checker",
+        "description": "Created with CodeSandbox",
+        "url": "github.com/chrislaughlin/npm-package-checker",
+        "shortDescriptionHTML": "Created with CodeSandbox"
+    },
+    {
+        "name": "espresso-tracker",
+        "description": "Track the progress of home made espresso, also an excuse to learn typescript",
+        "url": "github.com/chrislaughlin/espresso-tracker",
+        "shortDescriptionHTML": "Track the progress of home made espresso, also an excuse to learn typescript"
+    },
+    {
+        "name": "color-palette",
+        "description": "Color palette generator",
+        "url": "github.com/chrislaughlin/color-palette",
+        "shortDescriptionHTML": "Color palette generator"
+    },
+    {
+        "name": "can-i-use-quiz",
+        "description": null,
+        "url": "github.com/chrislaughlin/can-i-use-quiz",
+        "shortDescriptionHTML": ""
+    },
+    {
+        "name": "simple-stateful-provider",
+        "description": null,
+        "url": "github.com/chrislaughlin/simple-stateful-provider",
+        "shortDescriptionHTML": ""
+    },
+    {
+        "name": "useFetch",
+        "description": "React hook for the Browser Fetch",
+        "url": "github.com/chrislaughlin/useFetch",
+        "shortDescriptionHTML": "React hook for the Browser Fetch"
+    },
+    {
+        "name": "whatdayisit",
+        "description": "A simple tool to tell you what the day is",
+        "url": "github.com/chrislaughlin/whatdayisit",
+        "shortDescriptionHTML": "A simple tool to tell you what the day is"
+    },
+    {
+        "name": "Lockdown-Roulette",
+        "description": null,
+        "url": "github.com/chrislaughlin/Lockdown-Roulette",
+        "shortDescriptionHTML": ""
+    },
+    {
+        "name": "react-type-writer",
+        "description": "Typewriter built using React and CSS",
+        "url": "github.com/chrislaughlin/react-type-writer",
+        "shortDescriptionHTML": "Typewriter built using React and CSS"
+    },
+    {
+        "name": "shiity-beat-maker",
+        "description": "Beat maker built with react and audio API",
+        "url": "github.com/chrislaughlin/shiity-beat-maker",
+        "shortDescriptionHTML": "Beat maker built with react and audio API"
+    },
+    {
+        "name": "giphy-trends",
+        "description": null,
+        "url": "github.com/chrislaughlin/giphy-trends",
+        "shortDescriptionHTML": ""
+    },
+    {
+        "name": "floppy-bundle",
+        "description": "How many floppy disks would it take to hold your JavaScript bundle?",
+        "url": "github.com/chrislaughlin/floppy-bundle",
+        "shortDescriptionHTML": "How many floppy disks would it take to hold your JavaScript bundle?"
+    },
+    {
+        "name": "cli-game",
+        "description": "A very basic text adventure game for the terminal. You can watch it being built in the live stream recording",
+        "url": "github.com/chrislaughlin/cli-game",
+        "shortDescriptionHTML": "A very basic text adventure game for the terminal. You can watch it being built in the live stream recording"
+    },
+    {
+        "name": "meme-gen",
+        "description": "Meme generator using 98.css, react-draggable and styled-components",
+        "url": "github.com/chrislaughlin/meme-gen",
+        "shortDescriptionHTML": "Meme generator using 98.css, react-draggable and styled-components"
+    },
+    {
+        "name": "stories-noone-wanted",
+        "description": "Instagram stories recreated in HTML CSS and JS",
+        "url": "github.com/chrislaughlin/stories-noone-wanted",
+        "shortDescriptionHTML": "Instagram stories recreated in HTML CSS and JS"
+    },
+    {
+        "name": "voice-search",
+        "description": "Voice search using the SpeechRecognition API, Giphy API, and React Gallery",
+        "url": "github.com/chrislaughlin/voice-search",
+        "shortDescriptionHTML": "Voice search using the SpeechRecognition API, Giphy API, and React Gallery"
+    }
+]

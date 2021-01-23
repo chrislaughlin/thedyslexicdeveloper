@@ -1,10 +1,20 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from 'styled-components';
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+
+const StyledNav = styled.section`
+  text-align: center;
+  
+  a {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+`;
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -14,6 +24,14 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="THE DYSLEXIC DEVELOPER" />
       <Bio />
+      <StyledNav>
+        <a href="/about">
+          ABOUT
+        </a>
+        <a href="/projects">
+          PROJECTS
+        </a>
+      </StyledNav>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
