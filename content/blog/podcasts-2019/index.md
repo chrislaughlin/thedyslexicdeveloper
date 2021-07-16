@@ -45,6 +45,9 @@ Hosted by Jared Palmer and Ken Wheeler. Listen to ths only
  to hear the back and forth between these to. Usually with a drink in them, they talk about tech mostly frontend tech. They 
  have guests on to talk a bout whatever they are working on but its usually breaks down into just random rambling.  
  
+### [React Round Up](https://devchat.tv/show/react-round-up/)
+Hosted by Jack Herrington, Paige Niedringhaus, TJ VanToll, and Carl Mungazi. Every week they get together to talk all things React, front-end, and developer careers. 
+ 
 ## Security 
 
 ### [Cyber](https://podcasts.apple.com/us/podcast/cyber/id1441708044?mt=2)
