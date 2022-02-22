@@ -10,7 +10,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "framer-motion": "^1.9.1",
-    "gatsby": "^2.19.45",
+    "gatsby": "^4.0.0",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-feed": "^2.3.29",
@@ -30,7 +30,7 @@
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-remark": "^2.6.59",
     "gatsby-transformer-sharp": "^2.3.19",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.27.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
