@@ -1,26 +1,53 @@
-/*default styles to dark mode*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 :root {
-    --bg-color: #000000;
-    --text-color: #f5eded;
+    --bg-color: #040013;
+    --text-color: #f8f6ff;
 }
 
-/* if the user has light change */
-@media (prefers-color-scheme: light) {
-    body {
-        --bg-color: #eee;
-        --text-color: black;
-    }
+* {
+    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 20px;
+    line-height: 1.6;
     background-color: var(--bg-color);
+    background-image:
+        radial-gradient(#ff00ff 1px, transparent 1px),
+        radial-gradient(#00ffff 1px, transparent 1px),
+        radial-gradient(#ffff00 1px, transparent 1px);
+    background-size: 120px 120px, 160px 160px, 200px 200px;
+    background-position: 0 0, 40px 100px, 80px 60px;
     color: var(--text-color);
+    text-shadow: 0 0 4px rgba(0, 255, 255, 0.5);
+    min-height: 100vh;
 }
 
 a {
-    color: #d65a31;
+    color: #00ffff;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ff00ff;
+    text-shadow: 0 0 6px rgba(255, 0, 255, 0.8);
 }
 
-h1 {
-    font-size: 3rem;
+a:hover,
+a:focus {
+    color: #ffff00;
+    text-decoration-color: #ffff00;
+}
+
+p {
+    margin-bottom: 1.25rem;
+}
+
+main {
+    min-height: 50vh;
+}
+
+img {
+    image-rendering: pixelated;
 }
