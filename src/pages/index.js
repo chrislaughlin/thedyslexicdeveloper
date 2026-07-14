@@ -5,162 +5,238 @@ import styled, { css, keyframes } from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const marquee = keyframes`
+const scanner = keyframes`
   0% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 `
 
-const flicker = keyframes`
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
+const hoverShard = keyframes`
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
   }
-  20%, 24%, 55% {
-    opacity: 0.35;
+  50% {
+    transform: translateY(-14px) rotate(9deg);
   }
 `
 
 const MarqueeShell = styled.div`
-  overflow: hidden;
-  border: 3px dashed #ffff00;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.75rem 0;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 12px #00ffff inset, 0 0 20px rgba(255, 0, 255, 0.6);
-`
-
-const MarqueeText = styled.div`
-  display: inline-block;
-  white-space: nowrap;
-  animation: ${marquee} 18s linear infinite;
-  font-family: "Press Start 2P", cursive;
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffff00;
-  text-shadow: 0 0 8px #ff00ff;
-`
-
-const RetroPanel = styled.section`
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.25));
-  border: 4px double #00ffff;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255, 0, 255, 0.7), inset 0 0 20px rgba(0, 0, 0, 0.6);
-  color: var(--text-color);
-  text-shadow: 0 0 6px rgba(0, 255, 255, 0.9);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(216, 255, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 1.3rem) 0,
+    100% 50%,
+    calc(100% - 1.3rem) 100%,
+    0 100%,
+    1.3rem 50%
+  );
 
   &::after {
     content: "";
     position: absolute;
-    inset: 10px;
-    border: 2px dotted rgba(255, 255, 0, 0.5);
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    animation: ${scanner} 4s linear infinite;
+  }
+`
+
+const MarqueeText = styled.div`
+  white-space: nowrap;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acid);
+  text-shadow: 0 0 10px rgba(216, 255, 0, 0.55);
+`
+
+const HeroGrid = styled.section`
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 2rem;
+  align-items: stretch;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+`
+
+const GlassPanel = styled.div`
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: linear-gradient(135deg, rgba(255, 61, 242, 0.2), transparent 28%),
+    linear-gradient(315deg, rgba(0, 245, 255, 0.2), transparent 34%),
+    rgba(5, 3, 32, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  clip-path: polygon(
+    0 2rem,
+    2rem 0,
+    100% 0,
+    100% calc(100% - 2rem),
+    calc(100% - 2rem) 100%,
+    0 100%
+  );
+  box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.05),
+    0 24px 55px rgba(0, 0, 0, 0.34);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0.8rem;
+    border: 1px solid rgba(0, 245, 255, 0.28);
+    clip-path: inherit;
     pointer-events: none;
   }
 `
 
-const RetroHeading = styled.h2`
-  font-family: "Press Start 2P", cursive;
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.8rem;
-  text-transform: uppercase;
-  color: #ffff00;
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px rgba(0, 255, 255, 0.8);
-  animation: ${flicker} 4s infinite;
+const HeroHeading = styled.h2`
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  color: var(--text-color);
+  text-shadow: 0.08em 0.08em 0 var(--pink), -0.04em -0.04em 0 var(--cyan);
 `
 
-const RetroParagraph = styled.p`
-  font-size: 1.5rem;
-  margin: 0 auto 1.5rem;
-  max-width: 32rem;
-  line-height: 1.4;
+const HeroCopy = styled.p`
+  max-width: 42rem;
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  color: var(--muted-text);
 `
 
-const RetroList = styled.ul`
+const FeatureList = styled.ul`
+  display: grid;
+  gap: 0.85rem;
   list-style: none;
   padding: 0;
-  margin: 2rem auto;
-  max-width: 32rem;
-  font-size: 1.4rem;
+  margin: 2rem 0;
 
   li {
     position: relative;
-    padding-left: 2.5rem;
-    margin-bottom: 1rem;
+    padding: 0.9rem 1rem 0.9rem 3rem;
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 4px solid var(--cyan);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 1rem) 0,
+      100% 50%,
+      calc(100% - 1rem) 100%,
+      0 100%
+    );
   }
 
   li::before {
-    content: "✶";
+    content: "◆";
     position: absolute;
-    left: 0.75rem;
-    color: #00ffff;
-    text-shadow: 0 0 8px #ff00ff;
+    left: 1rem;
+    color: var(--acid);
+    text-shadow: 0 0 12px var(--acid);
   }
 `
 
 const buttonStyles = css`
-  display: inline-block;
-  padding: 1.1rem 1.75rem;
-  border: 3px solid #ff00ff;
-  border-radius: 8px;
-  background: repeating-linear-gradient(135deg, rgba(255, 0, 255, 0.25) 0, rgba(255, 0, 255, 0.25) 12px, rgba(0, 255, 255, 0.25) 12px, rgba(0, 255, 255, 0.25) 24px);
-  color: #ffff00;
-  text-decoration: none;
-  font-family: "Press Start 2P", cursive;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(216, 255, 0, 0.95),
+    rgba(0, 245, 255, 0.9) 48%,
+    rgba(255, 61, 242, 0.95)
+  );
+  color: #12002f;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  box-shadow: 0 0 18px rgba(255, 0, 255, 0.8), inset 0 0 12px rgba(0, 255, 255, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.12em;
+  clip-path: polygon(0.8rem 0, 100% 0, calc(100% - 0.8rem) 100%, 0 100%);
+  box-shadow: 0 10px 0 rgba(255, 61, 242, 0.38), 0 20px 30px rgba(0, 0, 0, 0.22);
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 
   &:hover,
   &:focus {
-    transform: translateY(-6px) rotate(-1.5deg);
-    box-shadow: 0 0 25px rgba(255, 255, 0, 0.9), inset 0 0 14px rgba(0, 255, 255, 0.8);
-    color: #ffffff;
-  }
-
-  &:active {
-    transform: translateY(2px) scale(0.98);
+    color: #12002f;
+    filter: saturate(1.3) brightness(1.08);
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 16px 0 rgba(0, 245, 255, 0.28), 0 30px 42px rgba(0, 0, 0, 0.3);
   }
 `
 
-const RetroLinks = styled.div`
+const LinkGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
+  gap: 1rem;
 `
 
 const SocialLink = styled.a`
   ${buttonStyles}
 `
 
-const RetroSticker = styled.div`
-  margin-top: 2.5rem;
-  padding: 1rem 1.5rem;
-  border: 3px dashed #00ffff;
-  background: rgba(0, 0, 0, 0.65);
-  display: inline-block;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+const SceneCard = styled.aside`
+  position: relative;
+  min-height: 28rem;
+  overflow: hidden;
+  background: radial-gradient(
+      circle at 50% 35%,
+      rgba(216, 255, 0, 0.24),
+      transparent 9rem
+    ),
+    linear-gradient(180deg, rgba(0, 245, 255, 0.15), rgba(255, 61, 242, 0.15)),
+    rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 2rem) 0,
+    100% 2rem,
+    100% 100%,
+    2rem 100%,
+    0 calc(100% - 2rem)
+  );
 `
 
-const SparkleRow = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  color: #ffff00;
-  text-shadow: 0 0 12px #ff00ff;
+const PolyShard = styled.span`
+  position: absolute;
+  display: block;
+  width: ${props => props.size};
+  height: ${props => props.size};
+  left: ${props => props.left};
+  top: ${props => props.top};
+  background: ${props => props.gradient};
+  clip-path: ${props => props.shape};
+  filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.25));
+  animation: ${hoverShard} ${props => props.speed} ease-in-out infinite;
+  animation-delay: ${props => props.delay};
+`
+
+const SceneLabel = styled.div`
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  padding: 1rem;
+  background: rgba(3, 0, 26, 0.74);
+  border: 1px solid rgba(216, 255, 0, 0.45);
+  color: var(--acid);
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 `
 
 const IndexPage = ({ data, location }) => {
@@ -168,44 +244,102 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Welcome to the Retro Web" />
+      <SEO title="Low-poly Y2K Web Developer" />
       <MarqueeShell>
         <MarqueeText>
-          ✨ Welcome to the official {siteTitle} cyber hub • grab a soda, power up your speakers, and enjoy the ride ✨
+          Low-poly portal initialized • neon mesh loaded • welcome to{" "}
+          {siteTitle}
         </MarqueeText>
       </MarqueeShell>
-      <RetroPanel>
-        <RetroHeading>Hey there, I'm The Dyslexic Developer!</RetroHeading>
-        <RetroParagraph>
-          Plug in your modem and join me on a neon-soaked tour through my corner of the internet. I build playful
-          experiences, tinker with creative code, and share stories about the journey along the way.
-        </RetroParagraph>
-        <RetroList>
-          <li>Dial-up deep dives into code, art, and accessibility.</li>
-          <li>Creative experiments fueled by caffeine and curiosity.</li>
-          <li>A community-minded builder who still loves a good easter egg.</li>
-        </RetroList>
-        <RetroLinks>
-          <SocialLink href="https://twitter.com/TheDyslexicDev" target="_blank" rel="noopener noreferrer">
-            Twitter HQ
-          </SocialLink>
-          <SocialLink href="https://github.com/TheDyslexicDeveloper" target="_blank" rel="noopener noreferrer">
-            GitHub Lab
-          </SocialLink>
-          <SocialLink href="https://instagram.com/thedyslexicdeveloper" target="_blank" rel="noopener noreferrer">
-            Instagram Gallery
-          </SocialLink>
-          <SocialLink href="/about">
-            About Me
-          </SocialLink>
-        </RetroLinks>
-        <SparkleRow>
-          <span>★</span>
-          <span>Beep Boop</span>
-          <span>★</span>
-        </SparkleRow>
-        <RetroSticker>Constructed with love, pixels, and a dash of nostalgia.</RetroSticker>
-      </RetroPanel>
+      <HeroGrid>
+        <GlassPanel>
+          <HeroHeading>
+            Code, streams, and glitches from the future past.
+          </HeroHeading>
+          <HeroCopy>
+            I build playful web experiences with a sharp edge: accessible
+            interfaces, creative tooling, open-source experiments, and the
+            occasional digital easter egg rendered in full Y2K chrome.
+          </HeroCopy>
+          <FeatureList>
+            <li>
+              Low-poly thoughts on JavaScript, React, security, and creative
+              code.
+            </li>
+            <li>
+              Livestream-friendly builds with curiosity, caffeine, and community
+              at the center.
+            </li>
+            <li>
+              Accessibility-minded systems with nostalgic energy and modern
+              craft.
+            </li>
+          </FeatureList>
+          <LinkGrid>
+            <SocialLink
+              href="https://twitter.com/TheDyslexicDev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Twitter
+            </SocialLink>
+            <SocialLink
+              href="https://github.com/TheDyslexicDeveloper"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </SocialLink>
+            <SocialLink
+              href="https://instagram.com/thedyslexicdeveloper"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </SocialLink>
+            <SocialLink href="/about">About</SocialLink>
+          </LinkGrid>
+        </GlassPanel>
+        <SceneCard aria-label="Decorative low-poly 3D Y2K scene">
+          <PolyShard
+            size="11rem"
+            left="18%"
+            top="12%"
+            speed="7s"
+            delay="0s"
+            shape="polygon(50% 0, 100% 36%, 80% 100%, 20% 100%, 0 36%)"
+            gradient="linear-gradient(135deg, var(--acid), var(--orange))"
+          />
+          <PolyShard
+            size="8rem"
+            left="54%"
+            top="20%"
+            speed="6s"
+            delay="-2s"
+            shape="polygon(0 0, 100% 18%, 72% 100%, 14% 70%)"
+            gradient="linear-gradient(135deg, var(--cyan), var(--violet))"
+          />
+          <PolyShard
+            size="13rem"
+            left="28%"
+            top="44%"
+            speed="8s"
+            delay="-4s"
+            shape="polygon(50% 0, 100% 50%, 50% 100%, 0 50%)"
+            gradient="linear-gradient(135deg, var(--pink), var(--violet), var(--cyan))"
+          />
+          <PolyShard
+            size="5rem"
+            left="68%"
+            top="62%"
+            speed="5s"
+            delay="-1s"
+            shape="polygon(50% 0, 100% 100%, 0 78%)"
+            gradient="linear-gradient(135deg, var(--acid), var(--cyan))"
+          />
+          <SceneLabel>Polygon dream machine</SceneLabel>
+        </SceneCard>
+      </HeroGrid>
     </Layout>
   )
 }
