@@ -45,21 +45,6 @@ const Identity = styled.p`
   letter-spacing: 0.08em;
   text-transform: uppercase;
 `
-const ContactSection = styled.section`
-  scroll-margin-top: 90px;
-  border-top: 1px solid #7d9bc32e;
-  padding-top: 32px;
-  @media (max-width: 700px) {
-    scroll-margin-top: 120px;
-  }
-`
-const ContactHeading = styled.h2`
-  margin: 0;
-  color: #f0f5ff;
-  font: 700 28px/1.25 "Montserrat", sans-serif;
-  letter-spacing: -0.04em;
-`
-
 const Welcome = styled.div`
   display: flex;
   align-items: center;
@@ -186,42 +171,13 @@ const Features = styled.ul`
     }
   }
 `
-const Connect = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  padding: 32px 0;
-  border-bottom: 1px solid #7d9bc32e;
-  @media (max-width: 700px) {
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-`
-const SocialLink = styled.a`
-  display: inline-flex;
-  gap: 28px;
-  align-items: center;
-  color: #f0f5ff;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 8px 0;
-  transition: color 0.2s;
-  span {
-    color: #68c7ff;
-    font-size: 17px;
-    font-weight: 400;
-  }
-  &:hover {
-    color: #ff66b7;
-  }
-`
 const Signoff = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 22px;
   padding: 24px 0 0;
+  border-top: 1px solid #7d9bc32e;
   font: 10px/1.7 "Courier New", monospace;
   color: #91a5c2;
   p {
@@ -258,7 +214,6 @@ const IndexPage = ({ data, location }) => {
           <a href="#talks">Talks</a>
           <a href="#publications">Publications</a>
           <a href="#live-streaming">Live Streaming</a>
-          <a href="#connect">Connect</a>
         </SectionNav>
         <Intro>
           <div>
@@ -291,32 +246,6 @@ const IndexPage = ({ data, location }) => {
           </li>
         </Features>
         <Resume />
-        <ContactSection id="connect" aria-labelledby="connect-title">
-          <ContactHeading id="connect-title">Connect</ContactHeading>
-          <Connect aria-label="Social links">
-            <SocialLink
-              href="https://twitter.com/TheDyslexicDev"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Twitter HQ <span aria-hidden="true">↗</span>
-            </SocialLink>
-            <SocialLink
-              href="https://github.com/TheDyslexicDeveloper"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Lab <span aria-hidden="true">↗</span>
-            </SocialLink>
-            <SocialLink
-              href="https://instagram.com/thedyslexicdeveloper"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram Gallery <span aria-hidden="true">↗</span>
-            </SocialLink>
-          </Connect>
-        </ContactSection>
         <Signoff>
           <p>Constructed with love, pixels, and a dash of nostalgia.</p>
           <span>★ &nbsp; Beep Boop &nbsp; ★</span>
