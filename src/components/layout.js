@@ -84,10 +84,10 @@ const SpaceFooter = styled.footer`
   }
 `
 
-const Layout = ({ location, title, children, space = false }) => {
+const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
-  if (space || location.pathname === rootPath) {
+  if (location.pathname === rootPath) {
     return (
       <>
         <SpaceBackground />

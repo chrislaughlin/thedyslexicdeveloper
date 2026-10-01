@@ -23,11 +23,6 @@ const Stage = styled.div`
     height: 100%;
     overflow: visible;
   }
-  &[data-compact="true"] .guides,
-  &[data-compact="true"] .schematic,
-  &[data-compact="true"] .annotations {
-    display: none;
-  }
   .letter {
     transform-box: fill-box;
     transform-origin: center;
@@ -54,7 +49,7 @@ const Stage = styled.div`
     }
   }
 `
-const NeonLogo = ({ compact = false }) => {
+const NeonLogo = () => {
   const stage = useRef(null)
   const [visible, setVisible] = useState(false)
   const [activeTab, setActiveTab] = useState(true)
@@ -77,11 +72,7 @@ const NeonLogo = ({ compact = false }) => {
     }
   }, [])
   return (
-    <Stage
-      ref={stage}
-      data-running={visible && activeTab}
-      data-compact={compact}
-    >
+    <Stage ref={stage} data-running={visible && activeTab}>
       <svg
         viewBox="0 0 600 556"
         role="img"

@@ -4,4 +4,4 @@ The homepage wordmark recreates the pink script treatment in the supplied logo r
 
 `logo-paths.json` contains each character's outline and its displacement, rotation, and stagger. The lettering is arranged on a 600 × 556 canvas. `neon-logo.js` controls assembly and schematic guides with CSS animations. IntersectionObserver and document visibility pause the animation when hidden; the reduced-motion preference provides a static alternative.
 
-The shared space theme is mounted by the homepage and About layout. Other routes retain their existing layout.
+The space theme is mounted by the homepage layout. The single-page profile, talks, publications, and live-streaming sections live in `resume.js`. The legacy About URL redirects to the homepage. Other routes retain their existing layout.

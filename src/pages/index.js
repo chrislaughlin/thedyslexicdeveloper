@@ -1,14 +1,64 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NeonLogo from "../components/space/neon-logo"
+import Resume from "../components/space/resume"
 import {
   SpacePage as Page,
   SpaceHeader as Header,
-  SpaceNavLink as HeaderLink,
 } from "../components/space/theme"
+
+const SectionNav = styled.nav`
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 20px 16px;
+  background: rgba(8, 13, 27, 0.88);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid #7d9bc32e;
+  border-bottom: 1px solid #7d9bc32e;
+  a {
+    color: #b5c2d8;
+    font: 11px/1.8 "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  a:hover {
+    color: #ff66b7;
+  }
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 20px;
+    padding: 14px 0;
+  }
+`
+const Identity = styled.p`
+  margin: 0 0 20px;
+  color: #68c7ff;
+  font: 10px/1.8 "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+`
+const ContactSection = styled.section`
+  scroll-margin-top: 90px;
+  border-top: 1px solid #7d9bc32e;
+  padding-top: 32px;
+  @media (max-width: 700px) {
+    scroll-margin-top: 120px;
+  }
+`
+const ContactHeading = styled.h2`
+  margin: 0;
+  color: #f0f5ff;
+  font: 700 28px/1.25 "Montserrat", sans-serif;
+  letter-spacing: -0.04em;
+`
 
 const Welcome = styled.div`
   display: flex;
@@ -47,7 +97,6 @@ const Intro = styled.section`
   align-items: center;
   gap: 70px;
   padding: 36px 0 40px;
-  border-top: 1px solid #7d9bc32e;
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -82,7 +131,7 @@ const Paragraph = styled.p`
   color: #b5c2d8;
   margin: 0;
 `
-const MainLink = styled(Link)`
+const MainLink = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -108,8 +157,7 @@ const Features = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid #7d9bc32e;
-  border-bottom: 1px solid #7d9bc32e;
-  padding: 25px 0;
+  padding: 25px 0 40px;
   gap: 28px;
   li {
     margin: 0;
@@ -192,7 +240,7 @@ const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Welcome to the Retro Web" />
+      <SEO title="Chris Laughlin — Software Developer" />
       <Page>
         <Header>
           <Welcome>
@@ -200,21 +248,26 @@ const IndexPage = ({ data, location }) => {
             cyber hub • grab a soda, power up your speakers, and enjoy the ride
             ✨
           </Welcome>
-          <HeaderLink to="/about">
-            About Me <span aria-hidden="true">↗</span>
-          </HeaderLink>
         </Header>
         <Hero aria-label="Main logo">
           <h1>{siteTitle}</h1>
           <NeonLogo />
         </Hero>
+        <SectionNav aria-label="Page sections">
+          <a href="#profile">Profile</a>
+          <a href="#talks">Talks</a>
+          <a href="#publications">Publications</a>
+          <a href="#live-streaming">Live Streaming</a>
+          <a href="#connect">Connect</a>
+        </SectionNav>
         <Intro>
           <div>
+            <Identity>Chris Laughlin / Software developer</Identity>
             <Heading>
               <span>Hey there, I'm</span>The Dyslexic <em>Developer!</em>
             </Heading>
-            <MainLink to="/about">
-              About Me <span aria-hidden="true">↗</span>
+            <MainLink href="#profile">
+              Explore my story <span aria-hidden="true">↓</span>
             </MainLink>
           </div>
           <Paragraph>
@@ -237,29 +290,33 @@ const IndexPage = ({ data, location }) => {
             builder who still loves a good easter egg.
           </li>
         </Features>
-        <Connect aria-label="Social links">
-          <SocialLink
-            href="https://twitter.com/TheDyslexicDev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Twitter HQ <span aria-hidden="true">↗</span>
-          </SocialLink>
-          <SocialLink
-            href="https://github.com/TheDyslexicDeveloper"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub Lab <span aria-hidden="true">↗</span>
-          </SocialLink>
-          <SocialLink
-            href="https://instagram.com/thedyslexicdeveloper"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram Gallery <span aria-hidden="true">↗</span>
-          </SocialLink>
-        </Connect>
+        <Resume />
+        <ContactSection id="connect" aria-labelledby="connect-title">
+          <ContactHeading id="connect-title">Connect</ContactHeading>
+          <Connect aria-label="Social links">
+            <SocialLink
+              href="https://twitter.com/TheDyslexicDev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Twitter HQ <span aria-hidden="true">↗</span>
+            </SocialLink>
+            <SocialLink
+              href="https://github.com/TheDyslexicDeveloper"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Lab <span aria-hidden="true">↗</span>
+            </SocialLink>
+            <SocialLink
+              href="https://instagram.com/thedyslexicdeveloper"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram Gallery <span aria-hidden="true">↗</span>
+            </SocialLink>
+          </Connect>
+        </ContactSection>
         <Signoff>
           <p>Constructed with love, pixels, and a dash of nostalgia.</p>
           <span>★ &nbsp; Beep Boop &nbsp; ★</span>

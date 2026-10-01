@@ -95,7 +95,7 @@ const Bio = () => {
         </StyledSocialLink>
          more about me
         <StyledSocialLink
-          href="/about"
+          href="/#profile"
           self
         >
           here

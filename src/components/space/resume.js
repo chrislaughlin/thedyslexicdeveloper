@@ -1,102 +1,64 @@
 import React from "react"
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-import { graphql, Link } from "gatsby"
-import styled, { css } from "styled-components"
-import InLineLink from "../components/inLineLink"
-import NeonLogo from "../components/space/neon-logo"
-import { SpacePage, SpaceHeader, SpaceNavLink } from "../components/space/theme"
+import styled from "styled-components"
+import InLineLink from "../inLineLink"
 
-const baseHighlightStyles = css`
-  font-style: italic;
-  color: #ff66b7;
-`
-const StyledWhoQuestion = styled.span`
-  display: inline;
-  font-size: 16px;
-  font-weight: 600;
-  ${baseHighlightStyles}
-`
-const StyledHighLightedText = styled.span`
-  ${baseHighlightStyles}
-`
-const LogoHomeLink = styled(Link)`
-  display: block;
-  width: 130px;
-  flex-shrink: 0;
-  margin: -18px 0 -12px;
-`
-const AboutHero = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
-  padding: 65px 0 48px;
-  h1 {
-    color: #f0f5ff;
-    font: 800 clamp(44px, 6vw, 72px) / 1.1 "Montserrat", sans-serif;
-    letter-spacing: -0.06em;
-    margin: 0;
-  }
-  em {
-    color: #ff4ca8;
-  }
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-bottom: 8px;
-  }
-  nav a {
-    color: #91a5c2;
-    font: 11px/1.8 "Courier New", monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  nav a:hover {
-    color: #ff66b7;
-  }
-  @media (max-width: 700px) {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 40px 0 30px;
-    gap: 24px;
-    nav {
-      gap: 12px 18px;
-      padding: 0;
-    }
-  }
-`
-const StyledAboutMeSection = styled.section`
+const Section = styled.section`
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
-  column-gap: 65px;
+  gap: 65px;
   border-top: 1px solid #7d9bc32e;
-  padding: 38px 0;
-  scroll-margin-top: 24px;
+  padding: 44px 0;
+  scroll-margin-top: 90px;
+  @media (max-width: 850px) {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 35px;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 32px 0;
+    scroll-margin-top: 120px;
+  }
+`
+const SectionNumber = styled.span`
+  display: block;
+  margin-bottom: 14px;
+  color: #68c7ff;
+  font: 10px/1.5 "Courier New", monospace;
+  letter-spacing: 0.14em;
+`
+const SectionTitle = styled.h2`
+  margin: 0;
+  color: #f0f5ff;
+  font: 700 28px/1.25 "Montserrat", sans-serif;
+  letter-spacing: -0.04em;
+`
+const ProfileName = styled.p`
+  color: #ff66b7;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 22px 0 6px;
+`
+const ProfileMeta = styled.p`
+  margin: 0;
+  color: #91a5c2;
+  font-size: 12px;
+  line-height: 1.9;
+`
+const SectionBody = styled.div`
   color: #b5c2d8;
   font-size: 15px;
   line-height: 1.9;
-  > p,
-  > div {
-    grid-column: 2;
+  min-width: 0;
+  p {
     margin: 0 0 18px;
+    max-width: 68ch;
+  }
+  > div {
+    margin-top: 26px;
   }
   > :last-child {
     margin-bottom: 0;
-  }
-  h2 {
-    grid-column: 1;
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.3;
-  }
-  &.intro > p:first-child {
-    grid-column: 1;
-  }
-  &.intro > p:last-child {
-    grid-column: 2;
-    grid-row: 1;
   }
   a {
     color: #68c7ff;
@@ -108,29 +70,20 @@ const StyledAboutMeSection = styled.section`
     color: #ff66b7;
     text-decoration-color: currentColor;
   }
-  @media (max-width: 850px) {
-    grid-template-columns: 190px minmax(0, 1fr);
-    column-gap: 35px;
-  }
-  @media (max-width: 700px) {
-    display: block;
-    padding: 28px 0;
-    h2 {
-      margin-bottom: 22px;
-    }
-  }
 `
-const StyledAboutMeSectionTitle = styled.a`
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  && {
-    color: #f0f5ff;
-    text-decoration: none;
-  }
-  &&:hover {
-    color: #ff66b7;
-  }
+const StyledWhoQuestion = styled.span`
+  color: #ff66b7;
+  font-style: italic;
+  font-weight: 600;
+`
+const SubHeading = styled.h3`
+  color: #ff66b7;
+  font: italic 600 15px/1.9 "Montserrat", sans-serif;
+  margin: 0;
+`
+const StyledHighLightedText = styled.span`
+  font-style: italic;
+  color: #ff66b7;
 `
 const StyledList = styled.ul`
   list-style: none;
@@ -138,44 +91,55 @@ const StyledList = styled.ul`
   margin: 12px 0 0;
   li {
     position: relative;
-    padding-left: 20px;
-    margin: 0 0 15px;
+    padding: 12px 24px 12px 0;
+    margin: 0;
+    border-bottom: 1px solid #7d9bc31a;
     overflow-wrap: anywhere;
   }
-  li::before {
+  li:first-child {
+    padding-top: 4px;
+  }
+  li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  li::after {
     content: "↗";
     position: absolute;
-    left: 0;
+    right: 0;
+    top: 12px;
     color: #ff66b7;
     font-size: 12px;
   }
+  li:first-child::after {
+    top: 4px;
+  }
+  a {
+    margin: 0;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `
 
-const About = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+export default function Resume() {
   return (
-    <Layout location={location} title={siteTitle} space>
-      <SEO title={data.site.siteMetadata.title} />
-      <SpacePage>
-        <SpaceHeader>
-          <LogoHomeLink to="/" aria-label="The Dyslexic Developer homepage">
-            <NeonLogo compact />
-          </LogoHomeLink>
-          <SpaceNavLink to="/">
-            Home <span aria-hidden="true">↗</span>
-          </SpaceNavLink>
-        </SpaceHeader>
-        <AboutHero>
-          <h1>
-            About <em>Me</em>
-          </h1>
-          <nav aria-label="About sections">
-            <a href="#live-streaming">Live Streaming</a>
-            <a href="#talks">Talks</a>
-            <a href="#publications">Publications</a>
-          </nav>
-        </AboutHero>
-        <StyledAboutMeSection className="intro">
+    <>
+      <Section id="profile" aria-labelledby="profile-title">
+        <div>
+          <SectionNumber aria-hidden="true">01 / PROFILE</SectionNumber>
+          <SectionTitle id="profile-title">Profile</SectionTitle>
+          <ProfileName>Chris Laughlin</ProfileName>
+          <ProfileMeta>
+            Software developer
+            <br />
+            Northern Ireland
+            <br />
+            Building since 2010
+          </ProfileMeta>
+        </div>
+        <SectionBody>
           <p>
             <StyledWhoQuestion>
               Who is the Dyslexic Developer?
@@ -201,41 +165,14 @@ const About = ({ data, location }) => {
             list a mile long of things to try and learn that grows every day.
             Check out some of the adventures he's taken below.
           </p>
-        </StyledAboutMeSection>
-        <StyledAboutMeSection id="live-streaming">
-          <h2>
-            <StyledAboutMeSectionTitle href="#live-streaming">
-              Live Streaming
-            </StyledAboutMeSectionTitle>
-          </h2>
-          <p>
-            I run a weekly live stream on{" "}
-            <StyledHighLightedText> Twitch </StyledHighLightedText>, where I try
-            out new web tech and build small projects. I always have a{" "}
-            <StyledHighLightedText> drink </StyledHighLightedText> at hand to
-            help me along the way. All Streams are uploaded to{" "}
-            <StyledHighLightedText> Youtube </StyledHighLightedText> after
-          </p>
-          <p>
-            You can subscribe to the channel
-            <InLineLink link="https://www.twitch.tv/chrislaughlin">
-              here
-            </InLineLink>{" "}
-            and see all previous coding videos
-          </p>
-          <p>
-            You can see all previous coding videos
-            <InLineLink link="https://www.youtube.com/channel/UCMsliAfPkd00UdKJVAOzWWw/">
-              here
-            </InLineLink>
-          </p>
-        </StyledAboutMeSection>
-        <StyledAboutMeSection id="talks">
-          <h2>
-            <StyledAboutMeSectionTitle href="#talks">
-              Talks
-            </StyledAboutMeSectionTitle>
-          </h2>
+        </SectionBody>
+      </Section>
+      <Section id="talks" aria-labelledby="talks-title">
+        <div>
+          <SectionNumber aria-hidden="true">02 / TALKS</SectionNumber>
+          <SectionTitle id="talks-title">Talks</SectionTitle>
+        </div>
+        <SectionBody>
           <p>
             I am a regular{" "}
             <StyledHighLightedText> speaker </StyledHighLightedText> at local
@@ -250,7 +187,7 @@ const About = ({ data, location }) => {
             sessions.
           </p>
           <div>
-            <StyledWhoQuestion>Meetups:</StyledWhoQuestion>
+            <SubHeading>Meetups:</SubHeading>
             <StyledList>
               <li>
                 <InLineLink link="https://www.meetup.com/Belfast-JS/">
@@ -260,7 +197,7 @@ const About = ({ data, location }) => {
             </StyledList>
           </div>
           <div>
-            <StyledWhoQuestion>Conferences:</StyledWhoQuestion>
+            <SubHeading>Conferences:</SubHeading>
             <StyledList>
               <li>
                 <InLineLink link="https://youtu.be/8GCRPffeAB8">
@@ -295,13 +232,14 @@ const About = ({ data, location }) => {
               </li>
             </StyledList>
           </div>
-        </StyledAboutMeSection>
-        <StyledAboutMeSection id="publications">
-          <h2>
-            <StyledAboutMeSectionTitle href="#publications">
-              Publications
-            </StyledAboutMeSectionTitle>
-          </h2>
+        </SectionBody>
+      </Section>
+      <Section id="publications" aria-labelledby="publications-title">
+        <div>
+          <SectionNumber aria-hidden="true">03 / PUBLICATIONS</SectionNumber>
+          <SectionTitle id="publications-title">Publications</SectionTitle>
+        </div>
+        <SectionBody>
           <p>
             I have been published on{" "}
             <StyledHighLightedText> external </StyledHighLightedText> blogs and
@@ -309,7 +247,7 @@ const About = ({ data, location }) => {
             <StyledHighLightedText> books </StyledHighLightedText>
           </p>
           <div>
-            <StyledWhoQuestion>Blogs:</StyledWhoQuestion>
+            <SubHeading>Blogs:</SubHeading>
             <StyledList>
               <li>
                 <InLineLink link="https://www.sitepoint.com/style-react-components-styled-components/">
@@ -326,7 +264,7 @@ const About = ({ data, location }) => {
             </StyledList>
           </div>
           <div>
-            <StyledWhoQuestion>Books:</StyledWhoQuestion>
+            <SubHeading>Books:</SubHeading>
             <StyledList>
               <li>
                 <InLineLink link="https://www.amazon.com/Understanding-Internet-Applications-Information-Professional/dp/1843344998">
@@ -337,20 +275,37 @@ const About = ({ data, location }) => {
               </li>
             </StyledList>
           </div>
-        </StyledAboutMeSection>
-      </SpacePage>
-    </Layout>
+        </SectionBody>
+      </Section>
+      <Section id="live-streaming" aria-labelledby="live-streaming-title">
+        <div>
+          <SectionNumber aria-hidden="true">04 / LIVE STREAMING</SectionNumber>
+          <SectionTitle id="live-streaming-title">Live Streaming</SectionTitle>
+        </div>
+        <SectionBody>
+          <p>
+            I run a weekly live stream on{" "}
+            <StyledHighLightedText> Twitch </StyledHighLightedText>, where I try
+            out new web tech and build small projects. I always have a{" "}
+            <StyledHighLightedText> drink </StyledHighLightedText> at hand to
+            help me along the way. All Streams are uploaded to{" "}
+            <StyledHighLightedText> Youtube </StyledHighLightedText> after
+          </p>
+          <p>
+            You can subscribe to the channel
+            <InLineLink link="https://www.twitch.tv/chrislaughlin">
+              here
+            </InLineLink>{" "}
+            and see all previous coding videos
+          </p>
+          <p>
+            You can see all previous coding videos
+            <InLineLink link="https://www.youtube.com/channel/UCMsliAfPkd00UdKJVAOzWWw/">
+              here
+            </InLineLink>
+          </p>
+        </SectionBody>
+      </Section>
+    </>
   )
 }
-
-export default About
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

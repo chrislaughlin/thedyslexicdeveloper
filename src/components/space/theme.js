@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
 
 const SpaceTheme = createGlobalStyle`
@@ -51,16 +50,6 @@ export const SpaceHeader = styled.header`
   @media (max-width: 700px) {
     align-items: flex-start;
     gap: 16px;
-  }
-`
-export const SpaceNavLink = styled(Link)`
-  color: #f0f5ff;
-  font: 11px "Courier New", monospace;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  &:hover {
-    color: #ff66b7;
   }
 `
 const AccessibleFocus = createGlobalStyle`
