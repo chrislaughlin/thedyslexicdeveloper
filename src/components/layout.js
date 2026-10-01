@@ -2,6 +2,7 @@ import React from "react"
 import styled, { keyframes } from "styled-components"
 
 import Title from "./title"
+import SpaceBackground from "./space/theme"
 
 const glow = keyframes`
   0% {
@@ -30,7 +31,10 @@ const OuterShell = styled.div`
     content: "";
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.07) 50%, rgba(0, 0, 0, 0.05) 50%);
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.07) 50%,
+      rgba(0, 0, 0, 0.05) 50%
+    );
     background-size: 100% 4px;
     mix-blend-mode: overlay;
     pointer-events: none;
@@ -68,8 +72,32 @@ const RetroFooter = styled.footer`
   }
 `
 
-const Layout = ({ location, title, children }) => {
+const SpaceFooter = styled.footer`
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 22px 52px 30px;
+  color: #91a5c2;
+  font: 10px/1.7 "Courier New", monospace;
+
+  @media (max-width: 700px) {
+    padding: 22px 22px 30px;
+  }
+`
+
+const Layout = ({ location, title, children, space = false }) => {
   const rootPath = `${__PATH_PREFIX__}/`
+
+  if (space || location.pathname === rootPath) {
+    return (
+      <>
+        <SpaceBackground />
+        <main>{children}</main>
+        <SpaceFooter>
+          © {new Date().getFullYear()} • Powered by Gatsby & good vibes
+        </SpaceFooter>
+      </>
+    )
+  }
 
   return (
     <OuterShell>

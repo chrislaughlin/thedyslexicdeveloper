@@ -1,217 +1,274 @@
 import React from "react"
-import { graphql } from "gatsby"
-import styled, { css, keyframes } from "styled-components"
-
+import { graphql, Link } from "gatsby"
+import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import NeonLogo from "../components/space/neon-logo"
+import {
+  SpacePage as Page,
+  SpaceHeader as Header,
+  SpaceNavLink as HeaderLink,
+} from "../components/space/theme"
 
-const marquee = keyframes`
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
+const Welcome = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  max-width: 890px;
+  font: 10px/1.8 "Courier New", monospace;
+  letter-spacing: 0.04em;
+  color: #91a5c2;
+  span {
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
+    background: #e7278c;
   }
 `
-
-const flicker = keyframes`
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 24%, 55% {
-    opacity: 0.35;
-  }
-`
-
-const MarqueeShell = styled.div`
-  overflow: hidden;
-  border: 3px dashed #ffff00;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.75rem 0;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 12px #00ffff inset, 0 0 20px rgba(255, 0, 255, 0.6);
-`
-
-const MarqueeText = styled.div`
-  display: inline-block;
-  white-space: nowrap;
-  animation: ${marquee} 18s linear infinite;
-  font-family: "Press Start 2P", cursive;
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffff00;
-  text-shadow: 0 0 8px #ff00ff;
-`
-
-const RetroPanel = styled.section`
+const Hero = styled.section`
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.25));
-  border: 4px double #00ffff;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255, 0, 255, 0.7), inset 0 0 20px rgba(0, 0, 0, 0.6);
-  color: var(--text-color);
-  text-shadow: 0 0 6px rgba(0, 255, 255, 0.9);
-
-  &::after {
-    content: "";
+  padding: 24px 0 36px;
+  h1 {
     position: absolute;
-    inset: 10px;
-    border: 2px dotted rgba(255, 255, 0, 0.5);
-    pointer-events: none;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  @media (max-width: 700px) {
+    padding: 20px 0 30px;
   }
 `
-
-const RetroHeading = styled.h2`
-  font-family: "Press Start 2P", cursive;
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.8rem;
-  text-transform: uppercase;
-  color: #ffff00;
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px rgba(0, 255, 255, 0.8);
-  animation: ${flicker} 4s infinite;
+const Intro = styled.section`
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 70px;
+  padding: 36px 0 40px;
+  border-top: 1px solid #7d9bc32e;
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 30px 0;
+  }
 `
-
-const RetroParagraph = styled.p`
-  font-size: 1.5rem;
-  margin: 0 auto 1.5rem;
-  max-width: 32rem;
-  line-height: 1.4;
+const Heading = styled.h2`
+  font-family: "Montserrat", sans-serif;
+  margin: 0 0 22px;
+  font-weight: 800;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.09;
+  letter-spacing: -0.06em;
+  color: #f0f5ff;
+  span {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  em {
+    display: block;
+    font-style: italic;
+    color: #ff4ca8;
+  }
 `
-
-const RetroList = styled.ul`
+const Paragraph = styled.p`
+  max-width: 510px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #b5c2d8;
+  margin: 0;
+`
+const MainLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  margin-top: 29px;
+  background: #ed3d94;
+  padding: 15px 23px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  transition: background 0.2s, transform 0.2s;
+  &:hover {
+    background: #c92079;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+`
+const Features = styled.ul`
   list-style: none;
-  padding: 0;
-  margin: 2rem auto;
-  max-width: 32rem;
-  font-size: 1.4rem;
-
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #7d9bc32e;
+  border-bottom: 1px solid #7d9bc32e;
+  padding: 25px 0;
+  gap: 28px;
   li {
-    position: relative;
-    padding-left: 2.5rem;
-    margin-bottom: 1rem;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.85;
+    color: #b5c2d8;
   }
-
-  li::before {
-    content: "✶";
-    position: absolute;
-    left: 0.75rem;
-    color: #00ffff;
-    text-shadow: 0 0 8px #ff00ff;
+  li + li {
+    border-left: 1px solid #7d9bc329;
+    padding-left: 28px;
   }
-`
-
-const buttonStyles = css`
-  display: inline-block;
-  padding: 1.1rem 1.75rem;
-  border: 3px solid #ff00ff;
-  border-radius: 8px;
-  background: repeating-linear-gradient(135deg, rgba(255, 0, 255, 0.25) 0, rgba(255, 0, 255, 0.25) 12px, rgba(0, 255, 255, 0.25) 12px, rgba(0, 255, 255, 0.25) 24px);
-  color: #ffff00;
-  text-decoration: none;
-  font-family: "Press Start 2P", cursive;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  box-shadow: 0 0 18px rgba(255, 0, 255, 0.8), inset 0 0 12px rgba(0, 255, 255, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover,
-  &:focus {
-    transform: translateY(-6px) rotate(-1.5deg);
-    box-shadow: 0 0 25px rgba(255, 255, 0, 0.9), inset 0 0 14px rgba(0, 255, 255, 0.8);
-    color: #ffffff;
+  span {
+    display: block;
+    margin-bottom: 10px;
+    color: #68c7ff;
+    font: 10px "Courier New", monospace;
+    letter-spacing: 0.12em;
   }
-
-  &:active {
-    transform: translateY(2px) scale(0.98);
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 19px;
+    li + li {
+      border-left: 0;
+      border-top: 1px solid #7d9bc329;
+      padding: 18px 0 0;
+    }
   }
 `
-
-const RetroLinks = styled.div`
+const Connect = styled.nav`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 32px 0;
+  border-bottom: 1px solid #7d9bc32e;
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
 `
-
 const SocialLink = styled.a`
-  ${buttonStyles}
+  display: inline-flex;
+  gap: 28px;
+  align-items: center;
+  color: #f0f5ff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 0;
+  transition: color 0.2s;
+  span {
+    color: #68c7ff;
+    font-size: 17px;
+    font-weight: 400;
+  }
+  &:hover {
+    color: #ff66b7;
+  }
 `
-
-const RetroSticker = styled.div`
-  margin-top: 2.5rem;
-  padding: 1rem 1.5rem;
-  border: 3px dashed #00ffff;
-  background: rgba(0, 0, 0, 0.65);
-  display: inline-block;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
-`
-
-const SparkleRow = styled.div`
+const Signoff = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  color: #ffff00;
-  text-shadow: 0 0 12px #ff00ff;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  padding: 24px 0 0;
+  font: 10px/1.7 "Courier New", monospace;
+  color: #91a5c2;
+  p {
+    margin: 0;
+  }
+  span {
+    white-space: nowrap;
+    color: #ff66b7;
+  }
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+  }
 `
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Welcome to the Retro Web" />
-      <MarqueeShell>
-        <MarqueeText>
-          ✨ Welcome to the official {siteTitle} cyber hub • grab a soda, power up your speakers, and enjoy the ride ✨
-        </MarqueeText>
-      </MarqueeShell>
-      <RetroPanel>
-        <RetroHeading>Hey there, I'm The Dyslexic Developer!</RetroHeading>
-        <RetroParagraph>
-          Plug in your modem and join me on a neon-soaked tour through my corner of the internet. I build playful
-          experiences, tinker with creative code, and share stories about the journey along the way.
-        </RetroParagraph>
-        <RetroList>
-          <li>Dial-up deep dives into code, art, and accessibility.</li>
-          <li>Creative experiments fueled by caffeine and curiosity.</li>
-          <li>A community-minded builder who still loves a good easter egg.</li>
-        </RetroList>
-        <RetroLinks>
-          <SocialLink href="https://twitter.com/TheDyslexicDev" target="_blank" rel="noopener noreferrer">
-            Twitter HQ
+      <Page>
+        <Header>
+          <Welcome>
+            <span aria-hidden="true" />✨ Welcome to the official {siteTitle}{" "}
+            cyber hub • grab a soda, power up your speakers, and enjoy the ride
+            ✨
+          </Welcome>
+          <HeaderLink to="/about">
+            About Me <span aria-hidden="true">↗</span>
+          </HeaderLink>
+        </Header>
+        <Hero aria-label="Main logo">
+          <h1>{siteTitle}</h1>
+          <NeonLogo />
+        </Hero>
+        <Intro>
+          <div>
+            <Heading>
+              <span>Hey there, I'm</span>The Dyslexic <em>Developer!</em>
+            </Heading>
+            <MainLink to="/about">
+              About Me <span aria-hidden="true">↗</span>
+            </MainLink>
+          </div>
+          <Paragraph>
+            Plug in your modem and join me on a neon-soaked tour through my
+            corner of the internet. I build playful experiences, tinker with
+            creative code, and share stories about the journey along the way.
+          </Paragraph>
+        </Intro>
+        <Features>
+          <li>
+            <span aria-hidden="true">01 / EXPLORE</span>Dial-up deep dives into
+            code, art, and accessibility.
+          </li>
+          <li>
+            <span aria-hidden="true">02 / EXPERIMENT</span>Creative experiments
+            fueled by caffeine and curiosity.
+          </li>
+          <li>
+            <span aria-hidden="true">03 / CONNECT</span>A community-minded
+            builder who still loves a good easter egg.
+          </li>
+        </Features>
+        <Connect aria-label="Social links">
+          <SocialLink
+            href="https://twitter.com/TheDyslexicDev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter HQ <span aria-hidden="true">↗</span>
           </SocialLink>
-          <SocialLink href="https://github.com/TheDyslexicDeveloper" target="_blank" rel="noopener noreferrer">
-            GitHub Lab
+          <SocialLink
+            href="https://github.com/TheDyslexicDeveloper"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Lab <span aria-hidden="true">↗</span>
           </SocialLink>
-          <SocialLink href="https://instagram.com/thedyslexicdeveloper" target="_blank" rel="noopener noreferrer">
-            Instagram Gallery
+          <SocialLink
+            href="https://instagram.com/thedyslexicdeveloper"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram Gallery <span aria-hidden="true">↗</span>
           </SocialLink>
-          <SocialLink href="/about">
-            About Me
-          </SocialLink>
-        </RetroLinks>
-        <SparkleRow>
-          <span>★</span>
-          <span>Beep Boop</span>
-          <span>★</span>
-        </SparkleRow>
-        <RetroSticker>Constructed with love, pixels, and a dash of nostalgia.</RetroSticker>
-      </RetroPanel>
+        </Connect>
+        <Signoff>
+          <p>Constructed with love, pixels, and a dash of nostalgia.</p>
+          <span>★ &nbsp; Beep Boop &nbsp; ★</span>
+        </Signoff>
+      </Page>
     </Layout>
   )
 }
-
 export default IndexPage
-
 export const pageQuery = graphql`
   query {
     site {
