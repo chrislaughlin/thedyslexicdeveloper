@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
+import Spaceship from "./spaceship"
 
 const SpaceTheme = createGlobalStyle`
   body {
@@ -98,6 +99,7 @@ export default function SpaceBackground() {
           <path d="M120 930H205 M1230 210H1270 M1330 780l-38 38 M1338 788l-38 38" />
         </g>
       </BackgroundArtifacts>
+      <Spaceship />
     </>
   )
 }
